@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		351A07F52000550000636672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A07F42000550000636672 /* AppDelegate.swift */; };
+		351A07F72000550000636672 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A07F62000550000636672 /* ViewController.swift */; };
+		351A07FA2000550000636672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351A07F82000550000636672 /* Main.storyboard */; };
+		351A07FC2000550000636672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 351A07FB2000550000636672 /* Assets.xcassets */; };
+		351A07FF2000550000636672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351A07FD2000550000636672 /* LaunchScreen.storyboard */; };
+		351A080A2000550000636672 /* SleepDebtWatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A08092000550000636672 /* SleepDebtWatcherTests.swift */; };
+		351A08152000550000636672 /* SleepDebtWatcherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A08142000550000636672 /* SleepDebtWatcherUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		351A08062000550000636672 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 351A07E9200054FF00636672 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 351A07F02000550000636672;
+			remoteInfo = SleepDebtWatcher;
+		};
+		351A08112000550000636672 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 351A07E9200054FF00636672 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 351A07F02000550000636672;
+			remoteInfo = SleepDebtWatcher;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		351A07F12000550000636672 /* SleepDebtWatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepDebtWatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		351A07F42000550000636672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		351A07F62000550000636672 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		351A07F92000550000636672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		351A07FB2000550000636672 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		351A07FE2000550000636672 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		351A08002000550000636672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		351A08052000550000636672 /* SleepDebtWatcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepDebtWatcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		351A08092000550000636672 /* SleepDebtWatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepDebtWatcherTests.swift; sourceTree = "<group>"; };
+		351A080B2000550000636672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		351A08102000550000636672 /* SleepDebtWatcherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepDebtWatcherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		351A08142000550000636672 /* SleepDebtWatcherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepDebtWatcherUITests.swift; sourceTree = "<group>"; };
+		351A08162000550000636672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		351A07EE2000550000636672 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351A08022000550000636672 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351A080D2000550000636672 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		351A07E8200054FF00636672 = {
+			isa = PBXGroup;
+			children = (
+				351A07F32000550000636672 /* SleepDebtWatcher */,
+				351A08082000550000636672 /* SleepDebtWatcherTests */,
+				351A08132000550000636672 /* SleepDebtWatcherUITests */,
+				351A07F22000550000636672 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		351A07F22000550000636672 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				351A07F12000550000636672 /* SleepDebtWatcher.app */,
+				351A08052000550000636672 /* SleepDebtWatcherTests.xctest */,
+				351A08102000550000636672 /* SleepDebtWatcherUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		351A07F32000550000636672 /* SleepDebtWatcher */ = {
+			isa = PBXGroup;
+			children = (
+				351A07F42000550000636672 /* AppDelegate.swift */,
+				351A07F62000550000636672 /* ViewController.swift */,
+				351A07F82000550000636672 /* Main.storyboard */,
+				351A07FB2000550000636672 /* Assets.xcassets */,
+				351A07FD2000550000636672 /* LaunchScreen.storyboard */,
+				351A08002000550000636672 /* Info.plist */,
+			);
+			path = SleepDebtWatcher;
+			sourceTree = "<group>";
+		};
+		351A08082000550000636672 /* SleepDebtWatcherTests */ = {
+			isa = PBXGroup;
+			children = (
+				351A08092000550000636672 /* SleepDebtWatcherTests.swift */,
+				351A080B2000550000636672 /* Info.plist */,
+			);
+			path = SleepDebtWatcherTests;
+			sourceTree = "<group>";
+		};
+		351A08132000550000636672 /* SleepDebtWatcherUITests */ = {
+			isa = PBXGroup;
+			children = (
+				351A08142000550000636672 /* SleepDebtWatcherUITests.swift */,
+				351A08162000550000636672 /* Info.plist */,
+			);
+			path = SleepDebtWatcherUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		351A07F02000550000636672 /* SleepDebtWatcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 351A08192000550000636672 /* Build configuration list for PBXNativeTarget "SleepDebtWatcher" */;
+			buildPhases = (
+				351A07ED2000550000636672 /* Sources */,
+				351A07EE2000550000636672 /* Frameworks */,
+				351A07EF2000550000636672 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SleepDebtWatcher;
+			productName = SleepDebtWatcher;
+			productReference = 351A07F12000550000636672 /* SleepDebtWatcher.app */;
+			productType = "com.apple.product-type.application";
+		};
+		351A08042000550000636672 /* SleepDebtWatcherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 351A081C2000550000636672 /* Build configuration list for PBXNativeTarget "SleepDebtWatcherTests" */;
+			buildPhases = (
+				351A08012000550000636672 /* Sources */,
+				351A08022000550000636672 /* Frameworks */,
+				351A08032000550000636672 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				351A08072000550000636672 /* PBXTargetDependency */,
+			);
+			name = SleepDebtWatcherTests;
+			productName = SleepDebtWatcherTests;
+			productReference = 351A08052000550000636672 /* SleepDebtWatcherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		351A080F2000550000636672 /* SleepDebtWatcherUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 351A081F2000550000636672 /* Build configuration list for PBXNativeTarget "SleepDebtWatcherUITests" */;
+			buildPhases = (
+				351A080C2000550000636672 /* Sources */,
+				351A080D2000550000636672 /* Frameworks */,
+				351A080E2000550000636672 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				351A08122000550000636672 /* PBXTargetDependency */,
+			);
+			name = SleepDebtWatcherUITests;
+			productName = SleepDebtWatcherUITests;
+			productReference = 351A08102000550000636672 /* SleepDebtWatcherUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		351A07E9200054FF00636672 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Yohei Kato";
+				TargetAttributes = {
+					351A07F02000550000636672 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					351A08042000550000636672 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 351A07F02000550000636672;
+					};
+					351A080F2000550000636672 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 351A07F02000550000636672;
+					};
+				};
+			};
+			buildConfigurationList = 351A07EC200054FF00636672 /* Build configuration list for PBXProject "SleepDebtWatcher" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 351A07E8200054FF00636672;
+			productRefGroup = 351A07F22000550000636672 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				351A07F02000550000636672 /* SleepDebtWatcher */,
+				351A08042000550000636672 /* SleepDebtWatcherTests */,
+				351A080F2000550000636672 /* SleepDebtWatcherUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		351A07EF2000550000636672 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				351A07FF2000550000636672 /* LaunchScreen.storyboard in Resources */,
+				351A07FC2000550000636672 /* Assets.xcassets in Resources */,
+				351A07FA2000550000636672 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351A08032000550000636672 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351A080E2000550000636672 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		351A07ED2000550000636672 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				351A07F72000550000636672 /* ViewController.swift in Sources */,
+				351A07F52000550000636672 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351A08012000550000636672 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				351A080A2000550000636672 /* SleepDebtWatcherTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		351A080C2000550000636672 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				351A08152000550000636672 /* SleepDebtWatcherUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		351A08072000550000636672 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 351A07F02000550000636672 /* SleepDebtWatcher */;
+			targetProxy = 351A08062000550000636672 /* PBXContainerItemProxy */;
+		};
+		351A08122000550000636672 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 351A07F02000550000636672 /* SleepDebtWatcher */;
+			targetProxy = 351A08112000550000636672 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		351A07F82000550000636672 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				351A07F92000550000636672 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		351A07FD2000550000636672 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				351A07FE2000550000636672 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		351A08172000550000636672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		351A08182000550000636672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		351A081A2000550000636672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepDebtWatcher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = esper.SleepDebtWatcher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		351A081B2000550000636672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepDebtWatcher/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = esper.SleepDebtWatcher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		351A081D2000550000636672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepDebtWatcherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = esper.SleepDebtWatcherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SleepDebtWatcher.app/SleepDebtWatcher";
+			};
+			name = Debug;
+		};
+		351A081E2000550000636672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepDebtWatcherTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = esper.SleepDebtWatcherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SleepDebtWatcher.app/SleepDebtWatcher";
+			};
+			name = Release;
+		};
+		351A08202000550000636672 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepDebtWatcherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = esper.SleepDebtWatcherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SleepDebtWatcher;
+			};
+			name = Debug;
+		};
+		351A08212000550000636672 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SleepDebtWatcherUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = esper.SleepDebtWatcherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SleepDebtWatcher;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		351A07EC200054FF00636672 /* Build configuration list for PBXProject "SleepDebtWatcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				351A08172000550000636672 /* Debug */,
+				351A08182000550000636672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		351A08192000550000636672 /* Build configuration list for PBXNativeTarget "SleepDebtWatcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				351A081A2000550000636672 /* Debug */,
+				351A081B2000550000636672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		351A081C2000550000636672 /* Build configuration list for PBXNativeTarget "SleepDebtWatcherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				351A081D2000550000636672 /* Debug */,
+				351A081E2000550000636672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		351A081F2000550000636672 /* Build configuration list for PBXNativeTarget "SleepDebtWatcherUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				351A08202000550000636672 /* Debug */,
+				351A08212000550000636672 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 351A07E9200054FF00636672 /* Project object */;
+}
