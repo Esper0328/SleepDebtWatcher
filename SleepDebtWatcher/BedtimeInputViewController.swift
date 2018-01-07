@@ -1,5 +1,5 @@
 //
-//  BedtimeViewController.swift
+//  BedtimeInputViewController.swift
 //  SleepDebtWatcher
 //
 //  Created by Yohei Kato on 2018/01/07.

@@ -16,7 +16,7 @@
 		351A08152000550000636672 /* SleepDebtWatcherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A08142000550000636672 /* SleepDebtWatcherUITests.swift */; };
 		351A08252001A1EA00636672 /* TesttingAppDeligate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A08242001A1EA00636672 /* TesttingAppDeligate.swift */; };
 		351A082A2001A4AF00636672 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A08292001A4AF00636672 /* main.swift */; };
-		351A082E2001B47200636672 /* BedtimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A082D2001B47200636672 /* BedtimeViewController.swift */; };
+		351A082E2001B47200636672 /* BedtimeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A082D2001B47200636672 /* BedtimeInputViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		351A08162000550000636672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		351A08242001A1EA00636672 /* TesttingAppDeligate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesttingAppDeligate.swift; sourceTree = "<group>"; };
 		351A08292001A4AF00636672 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		351A082D2001B47200636672 /* BedtimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeViewController.swift; sourceTree = "<group>"; };
+		351A082D2001B47200636672 /* BedtimeInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeInputViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +110,7 @@
 				351A07FD2000550000636672 /* LaunchScreen.storyboard */,
 				351A08002000550000636672 /* Info.plist */,
 				351A08292001A4AF00636672 /* main.swift */,
-				351A082D2001B47200636672 /* BedtimeViewController.swift */,
+				351A082D2001B47200636672 /* BedtimeInputViewController.swift */,
 			);
 			path = SleepDebtWatcher;
 			sourceTree = "<group>";
@@ -271,7 +271,7 @@
 				351A07F72000550000636672 /* ViewController.swift in Sources */,
 				351A07F52000550000636672 /* AppDelegate.swift in Sources */,
 				351A082A2001A4AF00636672 /* main.swift in Sources */,
-				351A082E2001B47200636672 /* BedtimeViewController.swift in Sources */,
+				351A082E2001B47200636672 /* BedtimeInputViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="32.833583208395808"/>
         </scene>
-        <!--Bedtime View Controller-->
+        <!--Bedtime Input View Controller-->
         <scene sceneID="cPO-b6-E7U">
             <objects>
-                <viewController id="3LV-kQ-Gjc" customClass="BedtimeViewController" customModule="SleepDebtWatcher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="3LV-kQ-Gjc" customClass="BedtimeInputViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qqQ-lv-Wa9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -65,7 +65,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bedtime Input" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUD-nj-aJl">
                                 <rect key="frame" x="134" y="35" width="107" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="bedtimeViewLabel"/>
+                                <accessibility key="accessibilityConfiguration" identifier="bedtimeInputViewLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
