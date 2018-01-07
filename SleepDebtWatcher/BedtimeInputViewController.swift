@@ -9,8 +9,8 @@
 import Foundation
 import UIKit
 
-class BedtimeViewController: UIViewController {
-    
+class BedtimeInputViewController: UIViewController {
+    var currentDate = Date()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -21,5 +21,13 @@ class BedtimeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func isValidBedTimeInput(inputDate: Date) -> Bool{
+        let calendar = Calendar(identifier: .gregorian)
+        print(calendar.component(.year, from: currentDate))
+        print(calendar.component(.year, from: inputDate))
+        if(calendar.component(.year, from: currentDate) == calendar.component(.year, from: inputDate)){
+            return true
+        }
+        return false
+    }
 }
