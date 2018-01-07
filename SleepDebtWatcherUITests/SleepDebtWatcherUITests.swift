@@ -29,7 +29,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testBedtimeInputButton_Initialize() {
+    func testBedtimeInputButton_Exist() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
@@ -41,13 +41,13 @@ class SleepDebtWatcherUITests: XCTestCase {
         //XCTAssertEqual(bedtimeInputButton.title, "Input Bedtime")
     }
     
-    func testDisplaySleepDebtButton_Initialize() {
+    func testDisplaySleepDebtButton_Exist() {
         let app = XCUIApplication()
         let displaySleepDebtButton = app.buttons["displaySleepDebtButton"]
         XCTAssertTrue(displaySleepDebtButton.exists)
     }
     
-    func testUIDatePicker_Initialize() {
+    func testUIDatePicker_Exist() {
         let app = XCUIApplication()
         let bedtimeInputButton = app.buttons["bedtimeInputButton"]
         bedtimeInputButton.tap()
@@ -55,4 +55,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         let bedtimeDatePicker = app.datePickers["bedtimeDatePicker"]
         XCTAssertTrue(bedtimeDatePicker.exists)
     }
+    
+    
+    
 }
