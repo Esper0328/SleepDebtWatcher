@@ -29,49 +29,34 @@ class SleepDebtWatcherUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testBedtimeInputButton_Exist() {
+    func testTopView_Exist() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         
         let app = XCUIApplication()
         let bedtimeInputButton = app.buttons["bedtimeInputButton"]
+        let displaySleepDebtButton = app.buttons["sleepDebtDisplayButton"]
+
         XCTAssertTrue(bedtimeInputButton.exists)
+        XCTAssertTrue(displaySleepDebtButton.exists)
         
         //Below Test fails because UI Test doesn't care storyboard
         //XCTAssertEqual(bedtimeInputButton.title, "Input Bedtime")
     }
     
-    func testDisplaySleepDebtButton_Exist() {
-        let app = XCUIApplication()
-        let displaySleepDebtButton = app.buttons["sleepDebtDisplayButton"]
-        XCTAssertTrue(displaySleepDebtButton.exists)
-    }
-    
-    func testBedtimeDatePicker_Exist() {
+    func testBedtimeInputView_Exist() {
         let app = initAppWithBedTimeInputView()
         let bedtimeDatePicker = app.datePickers["bedtimeDatePicker"]
-        XCTAssertTrue(bedtimeDatePicker.exists)
-    }
-    
-    func testBedtimeInputViewLabel_Exist() {
-        let app = initAppWithBedTimeInputView()
         let bedtimeInputViewLabel = app.staticTexts["bedtimeInputViewLabel"]
-        XCTAssertTrue(bedtimeInputViewLabel.exists)
-    }
-    
-    func testTimeSlotLabel_Exist(){
-        let app = initAppWithBedTimeInputView()
         let timeSlotLabel = app.staticTexts["timeSlotLabel"]
-        XCTAssertTrue(timeSlotLabel.exists)
-    }
-    
-    func testTimeInputCheckLabel_Exist(){
-        let app = initAppWithBedTimeInputView()
         let timeInputCheckLabel = app.staticTexts["timeInputCheckLabel"]
+        XCTAssertTrue(bedtimeDatePicker.exists)
+        XCTAssertTrue(bedtimeInputViewLabel.exists)
+        XCTAssertTrue(timeSlotLabel.exists)
         XCTAssertTrue(timeInputCheckLabel.exists)
     }
     
-    func testSleepDebtViewLabel_Exist(){
+    func testSleepDebtView_Exist(){
         let app = XCUIApplication()
         let sleepDebtDisplayButton = app.buttons["sleepDebtDisplayButton"]
         sleepDebtDisplayButton.tap()
