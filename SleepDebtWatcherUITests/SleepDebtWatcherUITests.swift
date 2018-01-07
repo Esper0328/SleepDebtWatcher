@@ -42,14 +42,9 @@ class SleepDebtWatcherUITests: XCTestCase {
     }
     
     func testDisplaySleepDebtButton_Initialize() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
         let app = XCUIApplication()
         let displaySleepDebtButton = app.buttons["displaySleepDebtButton"]
         XCTAssertTrue(displaySleepDebtButton.exists)
     }
-    
-    
     
 }

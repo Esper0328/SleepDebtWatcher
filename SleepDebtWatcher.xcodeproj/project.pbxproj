@@ -14,6 +14,8 @@
 		351A07FF2000550000636672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351A07FD2000550000636672 /* LaunchScreen.storyboard */; };
 		351A080A2000550000636672 /* SleepDebtWatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A08092000550000636672 /* SleepDebtWatcherTests.swift */; };
 		351A08152000550000636672 /* SleepDebtWatcherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A08142000550000636672 /* SleepDebtWatcherUITests.swift */; };
+		351A08252001A1EA00636672 /* TesttingAppDeligate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A08242001A1EA00636672 /* TesttingAppDeligate.swift */; };
+		351A082A2001A4AF00636672 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A08292001A4AF00636672 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		351A08102000550000636672 /* SleepDebtWatcherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepDebtWatcherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		351A08142000550000636672 /* SleepDebtWatcherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepDebtWatcherUITests.swift; sourceTree = "<group>"; };
 		351A08162000550000636672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		351A08242001A1EA00636672 /* TesttingAppDeligate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesttingAppDeligate.swift; sourceTree = "<group>"; };
+		351A08292001A4AF00636672 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,7 @@
 				351A07FB2000550000636672 /* Assets.xcassets */,
 				351A07FD2000550000636672 /* LaunchScreen.storyboard */,
 				351A08002000550000636672 /* Info.plist */,
+				351A08292001A4AF00636672 /* main.swift */,
 			);
 			path = SleepDebtWatcher;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			children = (
 				351A08142000550000636672 /* SleepDebtWatcherUITests.swift */,
 				351A08162000550000636672 /* Info.plist */,
+				351A08242001A1EA00636672 /* TesttingAppDeligate.swift */,
 			);
 			path = SleepDebtWatcherUITests;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			files = (
 				351A07F72000550000636672 /* ViewController.swift in Sources */,
 				351A07F52000550000636672 /* AppDelegate.swift in Sources */,
+				351A082A2001A4AF00636672 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				351A08252001A1EA00636672 /* TesttingAppDeligate.swift in Sources */,
 				351A08152000550000636672 /* SleepDebtWatcherUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
