@@ -96,6 +96,12 @@
                                 <accessibility key="accessibilityConfiguration" identifier="backToTopViewButton"/>
                                 <state key="normal" title="Back"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="the-q5-eYq">
+                                <rect key="frame" x="232" y="617" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="bedtimeSetButton"/>
+                                <state key="normal" title="Set"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="7lH-9z-9av"/>

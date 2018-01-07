@@ -35,10 +35,10 @@ class SleepDebtWatcherUITests: XCTestCase {
         
         let app = XCUIApplication()
         let bedtimeInputButton = app.buttons["bedtimeInputButton"]
-        let displaySleepDebtButton = app.buttons["sleepDebtDisplayButton"]
+        let sleepDebtDisplayButton = app.buttons["sleepDebtDisplayButton"]
 
         XCTAssertTrue(bedtimeInputButton.exists)
-        XCTAssertTrue(displaySleepDebtButton.exists)
+        XCTAssertTrue(sleepDebtDisplayButton.exists)
         
         //Below Test fails because UI Test doesn't care storyboard
         //XCTAssertEqual(bedtimeInputButton.title, "Input Bedtime")
@@ -54,12 +54,14 @@ class SleepDebtWatcherUITests: XCTestCase {
         let timeSlotLabel = app.staticTexts["timeSlotLabel"]
         let timeInputCheckLabel = app.staticTexts["timeInputCheckLabel"]
         let backToTopViewButton = app.buttons["backToTopViewButton"]
+        let bedtimeSetButton = app.buttons["bedtimeSetButton"]
         
         XCTAssertTrue(bedtimeDatePicker.exists)
         XCTAssertTrue(bedtimeInputViewLabel.exists)
         XCTAssertTrue(timeSlotLabel.exists)
         XCTAssertTrue(timeInputCheckLabel.exists)
         XCTAssertTrue(backToTopViewButton.exists)
+        XCTAssertTrue(bedtimeSetButton.exists)
     }
     
     func testSleepDebtView_Exist(){
