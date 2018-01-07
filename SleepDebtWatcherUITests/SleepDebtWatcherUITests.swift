@@ -56,6 +56,31 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(bedtimeDatePicker.exists)
     }
     
+    func testBedtimeViewLabel_Exist() {
+        let app = XCUIApplication()
+        let bedtimeInputButton = app.buttons["bedtimeInputButton"]
+        bedtimeInputButton.tap()
+        
+        let bedtimeViewLabel = app.staticTexts["bedtimeViewLabel"]
+        XCTAssertTrue(bedtimeViewLabel.exists)
+    }
     
+    func testTimeSlotLabel_Exist(){
+        let app = XCUIApplication()
+        let bedtimeInputButton = app.buttons["bedtimeInputButton"]
+        bedtimeInputButton.tap()
+        
+        let timeSlotLabel = app.staticTexts["timeSlotLabel"]
+        XCTAssertTrue(timeSlotLabel.exists)
+    }
+    
+    func testTimeInputCheckLabel_Exist(){
+        let app = XCUIApplication()
+        let bedtimeInputButton = app.buttons["bedtimeInputButton"]
+        bedtimeInputButton.tap()
+        
+        let timeInputCheckLabel = app.staticTexts["timeInputCheckLabel"]
+        XCTAssertTrue(timeInputCheckLabel.exists)
+    }
     
 }
