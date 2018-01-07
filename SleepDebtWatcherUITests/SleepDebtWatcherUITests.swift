@@ -71,13 +71,17 @@ class SleepDebtWatcherUITests: XCTestCase {
         
         let sleepDebtViewLabel = app.staticTexts["sleepDebtViewLabel"]
         let sleepStateLabel = app.staticTexts["sleepStateLabel"]
+        let sleepStateValueLabel = app.staticTexts["sleepStateValueLabel"]
         let sleepDebtLabel = app.staticTexts["sleepDebtLabel"]
+        let sleepDebtValueLabel = app.staticTexts["sleepDebtValueLabel"]
         let sleepDebtUnitLabel = app.staticTexts["sleepDebtUnitLabel"]
         let backToTopViewButton = app.buttons["backToTopViewButton"]
         
         XCTAssertTrue(sleepDebtViewLabel.exists)
         XCTAssertTrue(sleepStateLabel.exists)
+        XCTAssertTrue(sleepStateValueLabel.exists)
         XCTAssertTrue(sleepDebtLabel.exists)
+        XCTAssertTrue(sleepDebtValueLabel.exists)
         XCTAssertTrue(sleepDebtUnitLabel.exists)
         XCTAssertTrue(backToTopViewButton.exists)
     }
