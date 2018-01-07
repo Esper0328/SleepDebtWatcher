@@ -43,7 +43,7 @@ class SleepDebtWatcherUITests: XCTestCase {
     
     func testDisplaySleepDebtButton_Exist() {
         let app = XCUIApplication()
-        let displaySleepDebtButton = app.buttons["displaySleepDebtButton"]
+        let displaySleepDebtButton = app.buttons["sleepDebtDisplayButton"]
         XCTAssertTrue(displaySleepDebtButton.exists)
     }
     
@@ -71,10 +71,22 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(timeInputCheckLabel.exists)
     }
     
+    func testSleepDebtViewLabel_Exist(){
+        let app = XCUIApplication()
+        let sleepDebtDisplayButton = app.buttons["sleepDebtDisplayButton"]
+        sleepDebtDisplayButton.tap()
+        
+        let sleepDebtViewLabel = app.staticTexts["sleepDebtViewLabel"]
+        XCTAssertTrue(sleepDebtViewLabel.exists)
+    }
+    
     func initAppWithBedTimeInputView() -> XCUIApplication {
         let app = XCUIApplication()
         let bedtimeInputButton = app.buttons["bedtimeInputButton"]
         bedtimeInputButton.tap()
         return app
     }
+    
+    
+    
 }

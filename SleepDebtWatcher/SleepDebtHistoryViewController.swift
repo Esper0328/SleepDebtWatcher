@@ -1,32 +1,25 @@
 //
-//  ViewController.swift
+//  SleepDebtHistoryViewController.swift
 //  SleepDebtWatcher
 //
-//  Created by Yohei Kato on 2018/01/06.
+//  Created by Yohei Kato on 2018/01/07.
 //  Copyright © 2018年 Yohei Kato. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
-
+class SleepDebtHistoryViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func InputBedtimeEvent(_ sender: Any) {
-        performSegue(withIdentifier: "inputBedtime", sender: nil)
-    }
     
-    @IBAction func displaySleepDebtEvent(_ sender: Any) {
-        performSegue(withIdentifier: "displaySleepDebt", sender: nil)
-        
-    }
+    
 }
-
