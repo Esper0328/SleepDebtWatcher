@@ -48,39 +48,33 @@ class SleepDebtWatcherUITests: XCTestCase {
     }
     
     func testBedtimeDatePicker_Exist() {
-        let app = XCUIApplication()
-        let bedtimeInputButton = app.buttons["bedtimeInputButton"]
-        bedtimeInputButton.tap()
-        
+        let app = initAppWithBedTimeInputView()
         let bedtimeDatePicker = app.datePickers["bedtimeDatePicker"]
         XCTAssertTrue(bedtimeDatePicker.exists)
     }
     
     func testBedtimeViewLabel_Exist() {
-        let app = XCUIApplication()
-        let bedtimeInputButton = app.buttons["bedtimeInputButton"]
-        bedtimeInputButton.tap()
-        
+        let app = initAppWithBedTimeInputView()
         let bedtimeViewLabel = app.staticTexts["bedtimeViewLabel"]
         XCTAssertTrue(bedtimeViewLabel.exists)
     }
     
     func testTimeSlotLabel_Exist(){
-        let app = XCUIApplication()
-        let bedtimeInputButton = app.buttons["bedtimeInputButton"]
-        bedtimeInputButton.tap()
-        
+        let app = initAppWithBedTimeInputView()
         let timeSlotLabel = app.staticTexts["timeSlotLabel"]
         XCTAssertTrue(timeSlotLabel.exists)
     }
     
     func testTimeInputCheckLabel_Exist(){
-        let app = XCUIApplication()
-        let bedtimeInputButton = app.buttons["bedtimeInputButton"]
-        bedtimeInputButton.tap()
-        
+        let app = initAppWithBedTimeInputView()
         let timeInputCheckLabel = app.staticTexts["timeInputCheckLabel"]
         XCTAssertTrue(timeInputCheckLabel.exists)
     }
     
+    func initAppWithBedTimeInputView() -> XCUIApplication {
+        let app = XCUIApplication()
+        let bedtimeInputButton = app.buttons["bedtimeInputButton"]
+        bedtimeInputButton.tap()
+        return app
+    }
 }
