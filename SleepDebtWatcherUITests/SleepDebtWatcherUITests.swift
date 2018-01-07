@@ -47,4 +47,12 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(displaySleepDebtButton.exists)
     }
     
+    func testUIDatePicker_Initialize() {
+        let app = XCUIApplication()
+        let bedtimeInputButton = app.buttons["bedtimeInputButton"]
+        bedtimeInputButton.tap()
+        
+        let bedtimeDatePicker = app.datePickers["bedtimeDatePicker"]
+        XCTAssertTrue(bedtimeDatePicker.exists)
+    }
 }
