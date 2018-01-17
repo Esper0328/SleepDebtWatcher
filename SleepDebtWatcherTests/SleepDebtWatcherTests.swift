@@ -26,20 +26,8 @@ class SleepDebtWatcherTests: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testInputBedtime_wakeupDate(){
-        let calendar = Calendar(identifier: .gregorian)
-        let wakeupDate = calendar.date(from: DateComponents(year: 2018, month: 1, day: 7, hour: 21, minute:45))
-        let bedtimeInputViewController = BedtimeInputViewController()
-        XCTAssertTrue(bedtimeInputViewController.isValidBedTimeInput(inputDate: wakeupDate!))
-    }
- 
-    func testInputBedtime_invalidWakeupDate(){
-        let calendar = Calendar(identifier: .gregorian)
-        let invalidWakeupDate = calendar.date(from: DateComponents(year: 2300, month: 1, day: 7, hour: 21, minute:45))
-        let bedtimeInputViewController = BedtimeInputViewController()
-        XCTAssertFalse(bedtimeInputViewController.isValidBedTimeInput(inputDate: invalidWakeupDate!))
-    }
-    
+
+
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
