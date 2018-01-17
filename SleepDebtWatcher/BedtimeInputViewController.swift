@@ -13,6 +13,7 @@ class BedtimeInputViewController: UIViewController {
     var timeOfSleep: DateComponents!
     var wakeTime: DateComponents!
     var bedtime_hour: Int!
+    var bedtime_minute: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -44,5 +45,6 @@ class BedtimeInputViewController: UIViewController {
         let dateTo = calendar.date(from: wakeTime)!
         let comps = calendar.dateComponents([.hour, .minute], from: dateFrom, to: dateTo)
         bedtime_hour = comps.hour
+        bedtime_minute = comps.minute
     }
 }
