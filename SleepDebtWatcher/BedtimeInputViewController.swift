@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 class BedtimeInputViewController: UIViewController {
-    var currentDate = Date()
+    var timeOfSleep: DateComponents!
+    var wakeTime: DateComponents!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,5 +21,11 @@ class BedtimeInputViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    func setTimeOfSleep(_timeOfSleep: DateComponents){
+        timeOfSleep = _timeOfSleep
+    }
+    
+    func setWakeTime(_wakeTime: DateComponents){
+        wakeTime = _wakeTime
+    }
 }
