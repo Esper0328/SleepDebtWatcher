@@ -28,4 +28,8 @@ class BedtimeInputViewController: UIViewController {
     func setWakeTime(_wakeTime: DateComponents){
         wakeTime = _wakeTime
     }
+    
+    func isValidBedtime() -> Bool{
+        return true
+    }
 }
