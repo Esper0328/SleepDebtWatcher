@@ -49,9 +49,18 @@ class SleepDebtWatcherTests: XCTestCase {
         XCTAssertTrue(bedtimeInputView.isValidBedtime())
     }
     
-    func testIsValidBedtime_invalid(){
+    func testIsValidBedtime_invalid_same(){
         let bedtimeInputView = BedtimeInputViewController()
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
+        let wakeTime = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
+        bedtimeInputView.setTimeOfSleep(_timeOfSleep: timeOfSleep)
+        bedtimeInputView.setWakeTime(_wakeTime: wakeTime)
+        XCTAssertFalse(bedtimeInputView.isValidBedtime())
+    }
+    
+    func testIsValidBedtime_invalid_not_same(){
+        let bedtimeInputView = BedtimeInputViewController()
+        let timeOfSleep = DateComponents(year: 2017, month: 1, day: 18, hour: 6, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         bedtimeInputView.setTimeOfSleep(_timeOfSleep: timeOfSleep)
         bedtimeInputView.setWakeTime(_wakeTime: wakeTime)

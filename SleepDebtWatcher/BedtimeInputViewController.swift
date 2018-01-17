@@ -30,6 +30,10 @@ class BedtimeInputViewController: UIViewController {
     }
     
     func isValidBedtime() -> Bool{
-        return (timeOfSleep != wakeTime)
+        let calendar = Calendar.current
+        let dateFrom = calendar.date(from: timeOfSleep)!
+        let dateTo = calendar.date(from: wakeTime)!
+        let comps = calendar.dateComponents([.second], from: dateFrom, to: dateTo)
+        return (comps.second! > 0)
     }
 }
