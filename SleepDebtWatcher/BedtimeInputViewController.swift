@@ -30,6 +30,6 @@ class BedtimeInputViewController: UIViewController {
     }
     
     func isValidBedtime() -> Bool{
-        return true
+        return (timeOfSleep != wakeTime)
     }
 }
