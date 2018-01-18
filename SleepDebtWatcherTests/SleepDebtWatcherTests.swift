@@ -31,6 +31,11 @@ class SleepDebtWatcherTests: XCTestCase {
         bedtimeInputView.calcBedtime()
     }
     
+    func initializeBedtimeInputViewControllerWithCalcSleepDebt(rv_timeOfSleep: DateComponents, rv_wakeTime:DateComponents){
+        initializeBedtimeInputViewController(rv_timeOfSleep: rv_timeOfSleep, rv_wakeTime:rv_wakeTime)
+        bedtimeInputView.calcSleepDebt()
+    }
+    
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -107,9 +112,7 @@ class SleepDebtWatcherTests: XCTestCase {
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 4, minute: 55)
         let _sleepDebt_hour = 1
-        bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
-        bedtimeInputView.setWakeTime(rv_wakeTime: wakeTime)
-        bedtimeInputView.calcSleepDebt()
+        initializeBedtimeInputViewControllerWithCalcSleepDebt(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
         XCTAssertEqual(bedtimeInputView.sleepDebt_hour, _sleepDebt_hour)
     }
     
