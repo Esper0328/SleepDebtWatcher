@@ -127,6 +127,10 @@ class SleepDebtWatcherTests: XCTestCase {
         XCTAssertEqual(bedtimeInputView.sleepDebt_hour, _sleepDebt_hour)
     }
     
+    //ToDo
+    //dealing with minute
+    //add Test Case to calcSleepDebt for full test pass
+    //design weekly data
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
