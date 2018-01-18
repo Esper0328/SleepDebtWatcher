@@ -73,19 +73,17 @@ class SleepDebtWatcherTests: XCTestCase {
     func testCalcBedtime_validTime_hourCalculated(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 6, minute: 55)
-        initializeBedtimeInputViewControllerWithCalcBedtime(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
         let _bedtime_hour = 9
+        initializeBedtimeInputViewControllerWithCalcBedtime(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
         XCTAssertEqual(bedtimeInputView.bedtime_hour, _bedtime_hour)
     }
     
     func testCalcBedtime_validTime_hourAndMinuteCalculated(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 6, minute: 45)
-        bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
-        bedtimeInputView.setWakeTime(rv_wakeTime: wakeTime)
         let _bedtime_hour = 8
         let _bedtime_minute = 50
-        bedtimeInputView.calcBedtime()
+        initializeBedtimeInputViewControllerWithCalcBedtime(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
         XCTAssertEqual(bedtimeInputView.bedtime_hour, _bedtime_hour)
         XCTAssertEqual(bedtimeInputView.bedtime_minute, _bedtime_minute)
     }
@@ -93,9 +91,7 @@ class SleepDebtWatcherTests: XCTestCase {
     func testCalcBedtime_invalidSameTime_hourAndMinuteAreZero(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
-        bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
-        bedtimeInputView.setWakeTime(rv_wakeTime: wakeTime)
-        bedtimeInputView.calcBedtime()
+        initializeBedtimeInputViewControllerWithCalcBedtime(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
         XCTAssertEqual(bedtimeInputView.bedtime_hour, 0)
         XCTAssertEqual(bedtimeInputView.bedtime_minute, 0)
     }
@@ -103,18 +99,16 @@ class SleepDebtWatcherTests: XCTestCase {
     func testCalcBedtime_invalidReversedTime_hourAndMinuteAreZero() {
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 18, hour: 6, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
-        bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
-        bedtimeInputView.setWakeTime(rv_wakeTime: wakeTime)
-        bedtimeInputView.calcBedtime()
+        initializeBedtimeInputViewControllerWithCalcBedtime(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
         XCTAssertEqual(bedtimeInputView.bedtime_hour, 0)
         XCTAssertEqual(bedtimeInputView.bedtime_minute, 0)
     }
     func testCalcSleepDebt_lessThanThresh_sleepDebtIncreased(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 4, minute: 55)
+        let _sleepDebt_hour = 1
         bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
         bedtimeInputView.setWakeTime(rv_wakeTime: wakeTime)
-        let _sleepDebt_hour = 1
         bedtimeInputView.calcSleepDebt()
         XCTAssertEqual(bedtimeInputView.sleepDebt_hour, _sleepDebt_hour)
     }
