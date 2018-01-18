@@ -40,11 +40,17 @@ class BedtimeInputViewController: UIViewController {
     }
     
     func calcBedtime(){
-        let calendar = Calendar.current
-        let dateFrom = calendar.date(from: timeOfSleep)!
-        let dateTo = calendar.date(from: wakeTime)!
-        let comps = calendar.dateComponents([.hour, .minute], from: dateFrom, to: dateTo)
-        bedtime_hour = comps.hour
-        bedtime_minute = comps.minute
+        if(isValidBedtime()){
+            let calendar = Calendar.current
+            let dateFrom = calendar.date(from: timeOfSleep)!
+            let dateTo = calendar.date(from: wakeTime)!
+            let comps = calendar.dateComponents([.hour, .minute], from: dateFrom, to: dateTo)
+            bedtime_hour = comps.hour
+            bedtime_minute = comps.minute
+        }
+        else{
+            bedtime_hour = 0
+            bedtime_minute = 0
+        }
     }
 }
