@@ -14,6 +14,9 @@ class BedtimeInputViewController: UIViewController {
     var wakeTime: DateComponents!
     var bedtime_hour: Int!
     var bedtime_minute: Int!
+    var sleepDebt_hour: Int!
+    var sleepDebt_minute: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -52,5 +55,9 @@ class BedtimeInputViewController: UIViewController {
             bedtime_hour = 0
             bedtime_minute = 0
         }
+    }
+    
+    func calcSleepDebt(){
+        sleepDebt_hour = 1
     }
 }

@@ -112,10 +112,19 @@ class SleepDebtWatcherTests: XCTestCase {
         XCTAssertEqual(bedtimeInputView.bedtime_hour, 0)
         XCTAssertEqual(bedtimeInputView.bedtime_minute, 0)
     }
-    //func testCalcSleepDebt_()
-    //func testCalcSleepDebt_()
-    //func testCalcSleepDebt_()
-    //func testCalcSleepDebt_()
+    func testCalcSleepDebt_lessThanThresh_sleepDebtIncreased(){
+        let bedtimeInputView = BedtimeInputViewController()
+        let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
+        let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 4, minute: 55)
+        bedtimeInputView.setTimeOfSleep(_timeOfSleep: timeOfSleep)
+        bedtimeInputView.setWakeTime(_wakeTime: wakeTime)
+        let _sleepDebt_hour = 1
+        bedtimeInputView.calcSleepDebt()
+        XCTAssertEqual(bedtimeInputView.sleepDebt_hour, _sleepDebt_hour)
+    }
+    
+    //func testCalcSleepDebt_equalsThresh_sleepDebtisSame()
+    //func testCalcSleepDebt_moreThanThresh_sleepDebtDecreased()
     
     
     func testPerformanceExample() {
