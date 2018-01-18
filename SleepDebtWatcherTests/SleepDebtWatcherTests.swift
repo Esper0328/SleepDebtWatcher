@@ -36,11 +36,6 @@ class SleepDebtWatcherTests: XCTestCase {
         bedtimeInputView.calcSleepDebt()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
     func testSetTimeOfSleep_normalTime_setTimeOfSleep(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
