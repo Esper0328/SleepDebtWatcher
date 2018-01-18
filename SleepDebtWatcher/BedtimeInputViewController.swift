@@ -76,6 +76,15 @@ class BedtimeInputViewController: UIViewController {
             if(bedtime_hour < sleepTimeThreshold){
                 sleepDebt_hour = sleepDebt_hour + (sleepTimeThreshold - bedtime_hour)
             }
+            else {
+                sleepDebt_hour = sleepDebt_hour - (bedtime_hour - sleepTimeThreshold)
+                if(sleepDebt_hour < 0){
+                    sleepDebt_hour = 0
+                }
+            }
+        }
+        else {
+            //Do Nothing
         }
     }
 }
