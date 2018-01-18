@@ -72,15 +72,13 @@ class BedtimeInputViewController: UIViewController {
     func calcSleepDebt(){
         calcBedtime()
         let sleepTimeThreshold = 8
-        if(bedtime_hour > 0){
-            if(bedtime_hour < sleepTimeThreshold){
+        if((bedtime_hour > 0) && (bedtime_hour < sleepTimeThreshold)){
                 sleepDebt_hour = sleepDebt_hour + (sleepTimeThreshold - bedtime_hour)
-            }
-            else {
-                sleepDebt_hour = sleepDebt_hour - (bedtime_hour - sleepTimeThreshold)
-                if(sleepDebt_hour < 0){
-                    sleepDebt_hour = 0
-                }
+        }
+        else if((bedtime_hour >= sleepTimeThreshold) && (sleepDebt_hour >= 0)){
+            sleepDebt_hour = sleepDebt_hour - (bedtime_hour - sleepTimeThreshold)
+            if(sleepDebt_hour < 0){
+                sleepDebt_hour = 0
             }
         }
         else {
