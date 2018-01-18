@@ -17,6 +17,18 @@ class BedtimeInputViewController: UIViewController {
     var sleepDebt_hour: Int!
     var sleepDebt_minute: Int!
     
+    init(){
+        super.init(nibName: nil, bundle: nil)
+        self.bedtime_hour = 0
+        self.bedtime_minute = 0
+        self.sleepDebt_hour = 0
+        self.sleepDebt_minute = 0
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -58,6 +70,12 @@ class BedtimeInputViewController: UIViewController {
     }
     
     func calcSleepDebt(){
-        sleepDebt_hour = 1
+        calcBedtime()
+        let sleepTimeThreshold = 8
+        if(bedtime_hour > 0){
+            if(bedtime_hour < sleepTimeThreshold){
+                sleepDebt_hour = sleepDebt_hour + (sleepTimeThreshold - bedtime_hour)
+            }
+        }
     }
 }

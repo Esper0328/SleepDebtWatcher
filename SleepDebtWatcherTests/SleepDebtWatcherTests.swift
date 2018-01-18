@@ -111,7 +111,14 @@ class SleepDebtWatcherTests: XCTestCase {
         XCTAssertEqual(bedtimeInputView.sleepDebt_hour, _sleepDebt_hour)
     }
     
-    //func testCalcSleepDebt_equalsThresh_sleepDebtisSame()
+    func testCalcSleepDebt_equalsThresh_sleepDebtIsSame(){
+        let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
+        let wakeTime = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
+        let _sleepDebt_hour = 0
+        initBedtimeInputViewControllerWithCalcSleepDebt(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
+        XCTAssertEqual(bedtimeInputView.sleepDebt_hour, _sleepDebt_hour)
+    }
+    
     //func testCalcSleepDebt_moreThanThresh_sleepDebtDecreased()
     
     
