@@ -26,12 +26,12 @@ class BedtimeInputViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func setTimeOfSleep(_timeOfSleep: DateComponents){
-        timeOfSleep = _timeOfSleep
+    func setTimeOfSleep(rv_timeOfSleep: DateComponents){
+        timeOfSleep = rv_timeOfSleep
     }
     
-    func setWakeTime(_wakeTime: DateComponents){
-        wakeTime = _wakeTime
+    func setWakeTime(rv_wakeTime: DateComponents){
+        wakeTime = rv_wakeTime
     }
     
     func isValidBedtime() -> Bool{
