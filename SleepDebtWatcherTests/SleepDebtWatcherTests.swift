@@ -26,6 +26,11 @@ class SleepDebtWatcherTests: XCTestCase {
         bedtimeInputView.setWakeTime(rv_wakeTime: rv_wakeTime)
     }
     
+    func initializeBedtimeInputViewControllerWithCalcBedtime(rv_timeOfSleep: DateComponents, rv_wakeTime:DateComponents){
+        initializeBedtimeInputViewController(rv_timeOfSleep: rv_timeOfSleep, rv_wakeTime:rv_wakeTime)
+        bedtimeInputView.calcBedtime()
+    }
+    
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
@@ -54,32 +59,26 @@ class SleepDebtWatcherTests: XCTestCase {
     func testIsValidBedtime_invalidSameTime_returnFalse(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
-        bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
-        bedtimeInputView.setWakeTime(rv_wakeTime: wakeTime)
+        initializeBedtimeInputViewController(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
         XCTAssertFalse(bedtimeInputView.isValidBedtime())
     }
     
     func testIsValidBedtime_invalidReversedTime_returnFalse(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 18, hour: 6, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
-        bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
-        bedtimeInputView.setWakeTime(rv_wakeTime: wakeTime)
+        initializeBedtimeInputViewController(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
         XCTAssertFalse(bedtimeInputView.isValidBedtime())
     }
     
     func testCalcBedtime_validTime_hourCalculated(){
-        let bedtimeInputView = BedtimeInputViewController()
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 6, minute: 55)
-        bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
-        bedtimeInputView.setWakeTime(rv_wakeTime: wakeTime)
+        initializeBedtimeInputViewControllerWithCalcBedtime(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
         let _bedtime_hour = 9
-        bedtimeInputView.calcBedtime()
         XCTAssertEqual(bedtimeInputView.bedtime_hour, _bedtime_hour)
     }
     
     func testCalcBedtime_validTime_hourAndMinuteCalculated(){
-        let bedtimeInputView = BedtimeInputViewController()
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 6, minute: 45)
         bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
@@ -92,7 +91,6 @@ class SleepDebtWatcherTests: XCTestCase {
     }
     
     func testCalcBedtime_invalidSameTime_hourAndMinuteAreZero(){
-        let bedtimeInputView = BedtimeInputViewController()
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
@@ -103,7 +101,6 @@ class SleepDebtWatcherTests: XCTestCase {
     }
     
     func testCalcBedtime_invalidReversedTime_hourAndMinuteAreZero() {
-        let bedtimeInputView = BedtimeInputViewController()
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 18, hour: 6, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
@@ -113,7 +110,6 @@ class SleepDebtWatcherTests: XCTestCase {
         XCTAssertEqual(bedtimeInputView.bedtime_minute, 0)
     }
     func testCalcSleepDebt_lessThanThresh_sleepDebtIncreased(){
-        let bedtimeInputView = BedtimeInputViewController()
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 4, minute: 55)
         bedtimeInputView.setTimeOfSleep(rv_timeOfSleep: timeOfSleep)
