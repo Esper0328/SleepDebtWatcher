@@ -104,6 +104,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" identifier="backToTopFromBedtimeInput"/>
                                 <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="backTopFromInput" id="USH-HL-x3k"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="the-q5-eYq">
                                 <rect key="frame" x="232" y="617" width="30" height="30"/>
@@ -173,6 +176,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" identifier="backToTopFromBedtimePlanButton"/>
                                 <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="backToTopFromPlan" id="Jzt-cL-ITa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -204,6 +210,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" identifier="backToTopFromSleepDebtButton"/>
                                 <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="BackToTopFromHistory" id="P5h-cD-9Ds"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sleep State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fdp-nz-F6Z">
                                 <rect key="frame" x="43" y="73" width="88" height="21"/>
@@ -255,4 +264,7 @@
             <point key="canvasLocation" x="789.60000000000002" y="787.55622188905556"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="P5h-cD-9Ds"/>
+    </inferredMetricsTieBreakers>
 </document>
