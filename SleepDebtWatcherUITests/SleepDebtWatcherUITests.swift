@@ -55,14 +55,14 @@ class SleepDebtWatcherUITests: XCTestCase {
         let bedtimeInputViewLabel = app.staticTexts["bedtimeInputViewLabel"]
         let timeSlotLabel = app.staticTexts["timeSlotLabel"]
         let timeInputCheckLabel = app.staticTexts["timeInputCheckLabel"]
-        let backToTopViewButton = app.buttons["backToTopViewButton"]
+        let backToTopFromBedtimeInputButton = app.buttons["backToTopFromBedtimeInput"]
         let bedtimeSetButton = app.buttons["bedtimeSetButton"]
         
         XCTAssertTrue(bedtimeDatePicker.exists)
         XCTAssertTrue(bedtimeInputViewLabel.exists)
         XCTAssertTrue(timeSlotLabel.exists)
         XCTAssertTrue(timeInputCheckLabel.exists)
-        XCTAssertTrue(backToTopViewButton.exists)
+        XCTAssertTrue(backToTopFromBedtimeInputButton.exists)
         XCTAssertTrue(bedtimeSetButton.exists)
     }
     
@@ -77,7 +77,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         let sleepDebtLabel = app.staticTexts["sleepDebtLabel"]
         let sleepDebtValueLabel = app.staticTexts["sleepDebtValueLabel"]
         let sleepDebtUnitLabel = app.staticTexts["sleepDebtUnitLabel"]
-        let backToTopViewButton = app.buttons["backToTopViewButton"]
+        let backToTopFromSleepDebtButton = app.buttons["backToTopFromSleepDebtButton"]
         
         XCTAssertTrue(sleepDebtViewLabel.exists)
         XCTAssertTrue(sleepStateLabel.exists)
@@ -85,7 +85,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(sleepDebtLabel.exists)
         XCTAssertTrue(sleepDebtValueLabel.exists)
         XCTAssertTrue(sleepDebtUnitLabel.exists)
-        XCTAssertTrue(backToTopViewButton.exists)
+        XCTAssertTrue(backToTopFromSleepDebtButton.exists)
     }
     
     func testBedtimePlanView_Exist(){
@@ -97,16 +97,21 @@ class SleepDebtWatcherUITests: XCTestCase {
         let bedtimePlanViewLabel = app.staticTexts["bedtimePlanViewLabel"]
         let timePlanSlotLabel = app.staticTexts["timePlanSlotLabel"]
         let timePlanCheckLabel = app.staticTexts["timePlanCheckLabel"]
-        let backToTopViewButton = app.buttons["backToTopViewButton"]
+        let backToTopFromBedtimePlanButton = app.buttons["backToTopFromBedtimePlanButton"]
         let bedtimeSetButton = app.buttons["bedtimePlanSetButton"]
         
         XCTAssertTrue(bedtimePlanDatePicker.exists)
         XCTAssertTrue(bedtimePlanViewLabel.exists)
         XCTAssertTrue(timePlanSlotLabel.exists)
         XCTAssertTrue(timePlanCheckLabel.exists)
-        XCTAssertTrue(backToTopViewButton.exists)
+        XCTAssertTrue(backToTopFromBedtimePlanButton.exists)
         XCTAssertTrue(bedtimeSetButton.exists)
     }
+    /*
+    func testGoAndBackEachViewFromTopView(){
+        let app = XCUIApplication()
+        
+    }*/
 
 
 }
