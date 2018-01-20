@@ -42,7 +42,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(bedtimePlanButton.exists)
         
         //Test TopView<->BedtimePlanView
-        bedtimePlanButton.tap()
+        bedtimePlanButton.tap()                             //TopView->BedtimePlanView
         let bedtimePlanDatePicker = app.datePickers["bedtimePlanDatePicker"]
         let bedtimePlanViewLabel = app.staticTexts["bedtimePlanViewLabel"]
         let timePlanSlotLabel = app.staticTexts["timePlanSlotLabel"]
@@ -56,10 +56,10 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(timePlanCheckLabel.exists)
         XCTAssertTrue(backToTopFromBedtimePlanButton.exists)
         XCTAssertTrue(bedtimePlanSetButton.exists)
-        backToTopFromBedtimePlanButton.tap()
+        backToTopFromBedtimePlanButton.tap()                //BedtimePlanView->TopView
         
         //Test TopView<->BedtimeInputView
-        bedtimeInputButton.tap()
+        bedtimeInputButton.tap()                            //TopView->BedtimeInputView
         let bedtimeDatePicker = app.datePickers["bedtimeDatePicker"]
         let bedtimeInputViewLabel = app.staticTexts["bedtimeInputViewLabel"]
         let timeSlotLabel = app.staticTexts["timeSlotLabel"]
@@ -73,10 +73,10 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(timeInputCheckLabel.exists)
         XCTAssertTrue(backToTopFromBedtimeInputButton.exists)
         XCTAssertTrue(bedtimeSetButton.exists)
-        backToTopFromBedtimeInputButton.tap()
+        backToTopFromBedtimeInputButton.tap()               //BedtimeInputView->TopView
         
         //Test TopView<->SleepDebtHistoryView
-        sleepDebtDisplayButton.tap()
+        sleepDebtDisplayButton.tap()                        //TopView->SleepDebtHistoryView//
         let sleepDebtViewLabel = app.staticTexts["sleepDebtViewLabel"]
         let sleepStateLabel = app.staticTexts["sleepStateLabel"]
         let sleepStateValueLabel = app.staticTexts["sleepStateValueLabel"]
@@ -92,8 +92,13 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(sleepDebtValueLabel.exists)
         XCTAssertTrue(sleepDebtUnitLabel.exists)
         XCTAssertTrue(backToTopFromSleepDebtButton.exists)
-        backToTopFromSleepDebtButton.tap()
+        backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopView
         
+        //Test TopView->BedtimeInputView->SleepDebtHistoryView->TopView
+        bedtimeInputButton.tap()                            //TopView->BedtimeInputView
+        bedtimeSetButton.tap()                              //BedtimeInputView->SleepDebtHistoryView
+        backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopView
+
     }
 
 

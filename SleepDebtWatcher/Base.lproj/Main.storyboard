@@ -36,7 +36,7 @@
                                 <state key="normal" title="DisplaySleepDebt"/>
                                 <connections>
                                     <action selector="displaySleepDebtEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gTg-ZH-YQe"/>
-                                    <segue destination="ZTA-xh-4sx" kind="show" identifier="displaySleepDebt" id="nV3-fq-afU"/>
+                                    <segue destination="ZTA-xh-4sx" kind="show" identifier="displaySleepDebtFromTop" id="nV3-fq-afU"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUd-z1-mzA">
@@ -113,6 +113,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration" identifier="bedtimeSetButton"/>
                                 <state key="normal" title="Set"/>
+                                <connections>
+                                    <segue destination="ZTA-xh-4sx" kind="show" identifier="sleepDebtFromInput" id="qzh-Fb-Sgn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -121,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nw1-IP-VTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="791" y="33"/>
+            <point key="canvasLocation" x="789.60000000000002" y="32.833583208395808"/>
         </scene>
         <!--Bedtime Plan View Controller-->
         <scene sceneID="Ic6-cd-biC">
@@ -265,6 +268,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="nV3-fq-afU"/>
         <segue reference="P5h-cD-9Ds"/>
     </inferredMetricsTieBreakers>
 </document>
