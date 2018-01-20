@@ -28,49 +28,38 @@ class SleepDebtWatcherUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testTopView_Exist() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
+
+    func testGoAndBackEachViewFromTopView(){
         let app = XCUIApplication()
+        
+        //Test Topview
+        let bedtimePlanButton = app.buttons["bedtimePlanButton"]
         let bedtimeInputButton = app.buttons["bedtimeInputButton"]
         let sleepDebtDisplayButton = app.buttons["sleepDebtDisplayButton"]
-        let bedtimePlanButton = app.buttons["bedtimePlanButton"]
-
+        
         XCTAssertTrue(bedtimeInputButton.exists)
         XCTAssertTrue(sleepDebtDisplayButton.exists)
         XCTAssertTrue(bedtimePlanButton.exists)
         
-        //Below Test fails because UI Test doesn't care storyboard
-        //XCTAssertEqual(bedtimeInputButton.title, "Input Bedtime")
-    }
-    
-    func testBedtimePlanView_Exist(){
-        let app = XCUIApplication()
-        let bedtimePlanButton = app.buttons["bedtimePlanButton"]
+        //Test TopView<->BedtimePlanView
         bedtimePlanButton.tap()
-        
         let bedtimePlanDatePicker = app.datePickers["bedtimePlanDatePicker"]
         let bedtimePlanViewLabel = app.staticTexts["bedtimePlanViewLabel"]
         let timePlanSlotLabel = app.staticTexts["timePlanSlotLabel"]
         let timePlanCheckLabel = app.staticTexts["timePlanCheckLabel"]
         let backToTopFromBedtimePlanButton = app.buttons["backToTopFromBedtimePlanButton"]
-        let bedtimeSetButton = app.buttons["bedtimePlanSetButton"]
+        let bedtimePlanSetButton = app.buttons["bedtimePlanSetButton"]
         
         XCTAssertTrue(bedtimePlanDatePicker.exists)
         XCTAssertTrue(bedtimePlanViewLabel.exists)
         XCTAssertTrue(timePlanSlotLabel.exists)
         XCTAssertTrue(timePlanCheckLabel.exists)
         XCTAssertTrue(backToTopFromBedtimePlanButton.exists)
-        XCTAssertTrue(bedtimeSetButton.exists)
-    }
-
-    func testBedtimeInputView_Exist() {
-        let app = XCUIApplication()
-        let bedtimeInputButton = app.buttons["bedtimeInputButton"]
-        bedtimeInputButton.tap()
+        XCTAssertTrue(bedtimePlanSetButton.exists)
+        backToTopFromBedtimePlanButton.tap()
         
+        //Test TopView<->BedtimeInputView
+        bedtimeInputButton.tap()
         let bedtimeDatePicker = app.datePickers["bedtimeDatePicker"]
         let bedtimeInputViewLabel = app.staticTexts["bedtimeInputViewLabel"]
         let timeSlotLabel = app.staticTexts["timeSlotLabel"]
@@ -84,13 +73,10 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(timeInputCheckLabel.exists)
         XCTAssertTrue(backToTopFromBedtimeInputButton.exists)
         XCTAssertTrue(bedtimeSetButton.exists)
-    }
-    
-    func testSleepDebtView_Exist(){
-        let app = XCUIApplication()
-        let sleepDebtDisplayButton = app.buttons["sleepDebtDisplayButton"]
-        sleepDebtDisplayButton.tap()
+        backToTopFromBedtimeInputButton.tap()
         
+        //Test TopView<->SleepDebtHistoryView
+        sleepDebtDisplayButton.tap()
         let sleepDebtViewLabel = app.staticTexts["sleepDebtViewLabel"]
         let sleepStateLabel = app.staticTexts["sleepStateLabel"]
         let sleepStateValueLabel = app.staticTexts["sleepStateValueLabel"]
@@ -106,25 +92,6 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(sleepDebtValueLabel.exists)
         XCTAssertTrue(sleepDebtUnitLabel.exists)
         XCTAssertTrue(backToTopFromSleepDebtButton.exists)
-    }
-    
-    func testGoAndBackEachViewFromTopView(){
-        let app = XCUIApplication()
-        let bedtimePlanButton = app.buttons["bedtimePlanButton"]
-        let bedtimeInputButton = app.buttons["bedtimeInputButton"]
-        let sleepDebtDisplayButton = app.buttons["sleepDebtDisplayButton"]
-        
-        let backToTopFromBedtimeInputButton = app.buttons["backToTopFromBedtimeInput"]
-        let backToTopFromBedtimePlanButton = app.buttons["backToTopFromBedtimePlanButton"]
-        let backToTopFromSleepDebtButton = app.buttons["backToTopFromSleepDebtButton"]
-        
-        bedtimePlanButton.tap()
-        backToTopFromBedtimePlanButton.tap()
-        
-        bedtimeInputButton.tap()
-        backToTopFromBedtimeInputButton.tap()
-        
-        sleepDebtDisplayButton.tap()
         backToTopFromSleepDebtButton.tap()
         
     }
