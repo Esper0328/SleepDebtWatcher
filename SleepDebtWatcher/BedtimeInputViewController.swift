@@ -11,18 +11,24 @@ import UIKit
 
 class BedtimeInputViewController: UIViewController {
     
-    @IBOutlet weak var testtest4: UILabel!
+
+    @IBOutlet weak var timeSlot: UILabel!
     
+    enum SleepInputMode{
+        case TimeOfSleep
+        case WakeTime
+    }
     var timeOfSleep: DateComponents!
     var wakeTime: DateComponents!
     var bedtime_hour: Int! = 0
     var bedtime_minute: Int! = 0
     var sleepDebt_hour: Int! = 0
     var sleepDebt_minute: Int! = 0
+    var sleepInputState: SleepInputMode = .TimeOfSleep
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //timeSlot.text = "就寝時間"
+        timeSlot.text = "就寝時間"
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -38,6 +44,15 @@ class BedtimeInputViewController: UIViewController {
         wakeTime = rv_wakeTime
     }
     
+    @IBAction func setBedtimeEvent(_ sender: Any) {
+        switch sleepInputState {
+        case .TimeOfSleep:
+            sleepInputState = .WakeTime
+            timeSlot.text = "起床時間"
+        case .WakeTime:
+                performSegue(withIdentifier: "sleepDebtFromInput", sender: nil)
+        }
+    }
     func isValidBedtime() -> Bool{
         let calendar = Calendar.current
         let dateFrom = calendar.date(from: timeOfSleep)!

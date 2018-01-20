@@ -30,7 +30,7 @@ class SleepDebtWatcherUITests: XCTestCase {
 
     func testGoAndBackEachViewFromTopView(){
         let app = XCUIApplication()
-        let wait_time = 1.0
+        let wait_time = 4.0
         
         //Test Topview
         let bedtimePlanButton = app.buttons["bedtimePlanButton"]
@@ -104,7 +104,8 @@ class SleepDebtWatcherUITests: XCTestCase {
         
         //Test TopView->BedtimeInputView->SleepDebtHistoryView->TopView
         bedtimeInputButton.tap()                            //TopView->BedtimeInputView
-        //XCTAssertEqual(timeSlotLabel.label, "就寝時間")
+
+        XCTAssertEqual(timeSlotLabel.label, "就寝時間")
         
         //timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         //wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 4, minute: 55)
@@ -115,7 +116,10 @@ class SleepDebtWatcherUITests: XCTestCase {
         Thread.sleep(forTimeInterval: wait_time)
         
         bedtimeSetButton.tap()                              //BedtimeInputView->SleepDebtHistoryView
+        XCTAssertEqual(timeSlotLabel.label, "起床時間")
+
         Thread.sleep(forTimeInterval: wait_time)
+        bedtimeSetButton.tap()
         backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopVie
         Thread.sleep(forTimeInterval: wait_time)
     }

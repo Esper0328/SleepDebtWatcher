@@ -114,22 +114,16 @@
                                 <accessibility key="accessibilityConfiguration" identifier="bedtimeSetButton"/>
                                 <state key="normal" title="Set"/>
                                 <connections>
-                                    <segue destination="ZTA-xh-4sx" kind="show" identifier="sleepDebtFromInput" id="qzh-Fb-Sgn"/>
+                                    <action selector="setBedtimeEvent:" destination="3LV-kQ-Gjc" eventType="touchUpInside" id="cYG-pa-Wat"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXh-Qi-WfH">
-                                <rect key="frame" x="134" y="252" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="7lH-9z-9av"/>
                     </view>
                     <connections>
-                        <outlet property="testtest4" destination="OXh-Qi-WfH" id="hzM-ij-MRE"/>
+                        <outlet property="timeSlot" destination="IN7-BG-CjJ" id="eEa-mU-m5N"/>
+                        <segue destination="ZTA-xh-4sx" kind="show" identifier="sleepDebtFromInput" id="zho-DD-rAR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nw1-IP-VTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -278,7 +272,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nV3-fq-afU"/>
-        <segue reference="P5h-cD-9Ds"/>
+        <segue reference="zho-DD-rAR"/>
+        <segue reference="USH-HL-x3k"/>
     </inferredMetricsTieBreakers>
 </document>
