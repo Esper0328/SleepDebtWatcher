@@ -30,7 +30,7 @@ class SleepDebtWatcherUITests: XCTestCase {
 
     func testGoAndBackEachViewFromTopView(){
         let app = XCUIApplication()
-        let wait_time = 4.0
+        let wait_time = 1.0
         
         //Test Topview
         let bedtimePlanButton = app.buttons["bedtimePlanButton"]
@@ -104,22 +104,27 @@ class SleepDebtWatcherUITests: XCTestCase {
         
         //Test TopView->BedtimeInputView->SleepDebtHistoryView->TopView
         bedtimeInputButton.tap()                            //TopView->BedtimeInputView
-
         XCTAssertEqual(timeSlotLabel.label, "就寝時間")
         
         //timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         //wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 4, minute: 55)
         
+        //Set Sleep Of Time
         bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Jan 17")
         bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "9")
         bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "55")
         Thread.sleep(forTimeInterval: wait_time)
-        
-        bedtimeSetButton.tap()                              //BedtimeInputView->SleepDebtHistoryView
-        XCTAssertEqual(timeSlotLabel.label, "起床時間")
-
-        Thread.sleep(forTimeInterval: wait_time)
         bedtimeSetButton.tap()
+        XCTAssertEqual(timeSlotLabel.label, "起床時間")
+        Thread.sleep(forTimeInterval: wait_time)
+        
+        //Set Wake Time
+        bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Jan 18")
+        bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "4")
+        bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "55")
+        bedtimeSetButton.tap()                              //BedtimeInputView->SleepDebtHistoryView
+        
+        //TODO test SleepDebt
         backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopVie
         Thread.sleep(forTimeInterval: wait_time)
     }
