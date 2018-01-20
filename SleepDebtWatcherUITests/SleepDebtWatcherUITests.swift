@@ -13,7 +13,6 @@ class SleepDebtWatcherUITests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        
         // Put setup code here. This method is called before the invocation of each test method in the class.
         
         // In UI tests it is usually best to stop immediately when a failure occurs.
@@ -31,6 +30,7 @@ class SleepDebtWatcherUITests: XCTestCase {
 
     func testGoAndBackEachViewFromTopView(){
         let app = XCUIApplication()
+        let wait_time = 1.0
         
         //Test Topview
         let bedtimePlanButton = app.buttons["bedtimePlanButton"]
@@ -57,9 +57,12 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(backToTopFromBedtimePlanButton.exists)
         XCTAssertTrue(bedtimePlanSetButton.exists)
         backToTopFromBedtimePlanButton.tap()                //BedtimePlanView->TopView
+        Thread.sleep(forTimeInterval: wait_time)
         
         //Test TopView<->BedtimeInputView
         bedtimeInputButton.tap()                            //TopView->BedtimeInputView
+        Thread.sleep(forTimeInterval: wait_time)
+        
         let bedtimeDatePicker = app.datePickers["bedtimeDatePicker"]
         let bedtimeInputViewLabel = app.staticTexts["bedtimeInputViewLabel"]
         let timeSlotLabel = app.staticTexts["timeSlotLabel"]
@@ -73,10 +76,14 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(timeInputCheckLabel.exists)
         XCTAssertTrue(backToTopFromBedtimeInputButton.exists)
         XCTAssertTrue(bedtimeSetButton.exists)
+        
         backToTopFromBedtimeInputButton.tap()               //BedtimeInputView->TopView
+        Thread.sleep(forTimeInterval: wait_time)
         
         //Test TopView<->SleepDebtHistoryView
-        sleepDebtDisplayButton.tap()                        //TopView->SleepDebtHistoryView//
+        sleepDebtDisplayButton.tap()                        //TopView->SleepDebtHistoryView
+        Thread.sleep(forTimeInterval: wait_time)
+        
         let sleepDebtViewLabel = app.staticTexts["sleepDebtViewLabel"]
         let sleepStateLabel = app.staticTexts["sleepStateLabel"]
         let sleepStateValueLabel = app.staticTexts["sleepStateValueLabel"]
@@ -93,12 +100,24 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(sleepDebtUnitLabel.exists)
         XCTAssertTrue(backToTopFromSleepDebtButton.exists)
         backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopView
+        Thread.sleep(forTimeInterval: wait_time)
         
         //Test TopView->BedtimeInputView->SleepDebtHistoryView->TopView
         bedtimeInputButton.tap()                            //TopView->BedtimeInputView
+        //XCTAssertEqual(timeSlotLabel.label, "就寝時間")
+        
+        //timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
+        //wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 4, minute: 55)
+        
+        bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Jan 17")
+        bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "9")
+        bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "55")
+        Thread.sleep(forTimeInterval: wait_time)
+        
         bedtimeSetButton.tap()                              //BedtimeInputView->SleepDebtHistoryView
-        backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopView
-
+        Thread.sleep(forTimeInterval: wait_time)
+        backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopVie
+        Thread.sleep(forTimeInterval: wait_time)
     }
 
 

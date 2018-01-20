@@ -126,7 +126,7 @@ class SleepDebtWatcherTests: XCTestCase {
         initBedtimeInputViewControllerWithCalcSleepDebt(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
         XCTAssertEqual(bedtimeInputView.sleepDebt_hour, _sleepDebt_hour)
     }
-    
+
     //ToDo
     //dealing with minute
     //add Test Case to calcSleepDebt for full test pass

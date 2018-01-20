@@ -60,7 +60,7 @@
         <!--Bedtime Input View Controller-->
         <scene sceneID="cPO-b6-E7U">
             <objects>
-                <viewController id="3LV-kQ-Gjc" customClass="BedtimeInputViewController" sceneMemberID="viewController">
+                <viewController id="3LV-kQ-Gjc" customClass="BedtimeInputViewController" customModule="SleepDebtWatcher" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qqQ-lv-Wa9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,10 +117,20 @@
                                     <segue destination="ZTA-xh-4sx" kind="show" identifier="sleepDebtFromInput" id="qzh-Fb-Sgn"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXh-Qi-WfH">
+                                <rect key="frame" x="134" y="252" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="7lH-9z-9av"/>
                     </view>
+                    <connections>
+                        <outlet property="testtest4" destination="OXh-Qi-WfH" id="hzM-ij-MRE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nw1-IP-VTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

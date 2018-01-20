@@ -8,11 +8,12 @@
 
 import UIKit
 
+//Default
 //@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    //For fast Unit Test
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -23,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
 //Default
 /*
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

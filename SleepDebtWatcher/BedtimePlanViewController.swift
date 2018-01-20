@@ -11,6 +11,7 @@ import UIKit
 
 class BedtimePlanViewController: UIViewController {
     
+    var sleepDebt_hour: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

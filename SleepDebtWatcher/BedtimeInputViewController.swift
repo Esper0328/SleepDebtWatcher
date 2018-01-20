@@ -10,27 +10,19 @@ import Foundation
 import UIKit
 
 class BedtimeInputViewController: UIViewController {
+    
+    @IBOutlet weak var testtest4: UILabel!
+    
     var timeOfSleep: DateComponents!
     var wakeTime: DateComponents!
-    var bedtime_hour: Int!
-    var bedtime_minute: Int!
-    var sleepDebt_hour: Int!
-    var sleepDebt_minute: Int!
-    
-    init(){
-        super.init(nibName: nil, bundle: nil)
-        self.bedtime_hour = 0
-        self.bedtime_minute = 0
-        self.sleepDebt_hour = 0
-        self.sleepDebt_minute = 0
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var bedtime_hour: Int! = 0
+    var bedtime_minute: Int! = 0
+    var sleepDebt_hour: Int! = 0
+    var sleepDebt_minute: Int! = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //timeSlot.text = "就寝時間"
         // Do any additional setup after loading the view, typically from a nib.
     }
     
