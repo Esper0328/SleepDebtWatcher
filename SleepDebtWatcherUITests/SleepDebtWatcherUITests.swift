@@ -56,6 +56,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(timePlanCheckLabel.exists)
         XCTAssertTrue(backToTopFromBedtimePlanButton.exists)
         XCTAssertTrue(bedtimePlanSetButton.exists)
+        
         backToTopFromBedtimePlanButton.tap()                //BedtimePlanView->TopView
         Thread.sleep(forTimeInterval: wait_time)
         
@@ -76,6 +77,8 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(timeInputCheckLabel.exists)
         XCTAssertTrue(backToTopFromBedtimeInputButton.exists)
         XCTAssertTrue(bedtimeSetButton.exists)
+        
+        
         
         backToTopFromBedtimeInputButton.tap()               //BedtimeInputView->TopView
         Thread.sleep(forTimeInterval: wait_time)
