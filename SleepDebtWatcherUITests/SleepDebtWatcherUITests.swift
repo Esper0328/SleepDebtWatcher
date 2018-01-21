@@ -94,6 +94,9 @@ class SleepDebtWatcherUITests: XCTestCase {
         let sleepDebtValueLabel = app.staticTexts["sleepDebtValueLabel"]
         let sleepDebtUnitLabel = app.staticTexts["sleepDebtUnitLabel"]
         let backToTopFromSleepDebtButton = app.buttons["backToTopFromSleepDebtButton"]
+        let barChartViewLabel = app.staticTexts["barChartViewLabel"]
+        
+        barChartViewLabel.tap()
         
         XCTAssertTrue(sleepDebtViewLabel.exists)
         XCTAssertTrue(sleepStateLabel.exists)
@@ -116,6 +119,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Jan 17")
         bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "9")
         bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "55")
+        bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: "PM")
         Thread.sleep(forTimeInterval: wait_time)
         bedtimeSetButton.tap()
         XCTAssertEqual(timeSlotLabel.label, "起床時間")
@@ -125,7 +129,11 @@ class SleepDebtWatcherUITests: XCTestCase {
         bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Jan 18")
         bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "4")
         bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "55")
+        bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: "AM")
+
         bedtimeSetButton.tap()                              //BedtimeInputView->SleepDebtHistoryView
+        
+        XCTAssertEqual(sleepDebtValueLabel.label, "1")
         
         //TODO test SleepDebt
         backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopVie

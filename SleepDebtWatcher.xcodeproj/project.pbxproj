@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3500A51520136651009EC173 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3500A51420136651009EC173 /* main.swift */; };
+		3500A51A2014B5AE009EC173 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A5192014B5AE009EC173 /* Charts.framework */; };
 		351A07F52000550000636672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A07F42000550000636672 /* AppDelegate.swift */; };
 		351A07F72000550000636672 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A07F62000550000636672 /* TopViewController.swift */; };
 		351A07FA2000550000636672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351A07F82000550000636672 /* Main.storyboard */; };
@@ -40,6 +41,8 @@
 
 /* Begin PBXFileReference section */
 		3500A51420136651009EC173 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3500A5172014B58D009EC173 /* Carthage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Carthage; sourceTree = "<group>"; };
+		3500A5192014B5AE009EC173 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		351A07F12000550000636672 /* SleepDebtWatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepDebtWatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		351A07F42000550000636672 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		351A07F62000550000636672 /* TopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3500A51A2014B5AE009EC173 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +88,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3500A5162014B58C009EC173 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3500A5192014B5AE009EC173 /* Charts.framework */,
+				3500A5172014B58D009EC173 /* Carthage */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		351A07E8200054FF00636672 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +104,7 @@
 				351A08082000550000636672 /* SleepDebtWatcherTests */,
 				351A08132000550000636672 /* SleepDebtWatcherUITests */,
 				351A07F22000550000636672 /* Products */,
+				3500A5162014B58C009EC173 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,6 +164,7 @@
 				351A07ED2000550000636672 /* Sources */,
 				351A07EE2000550000636672 /* Frameworks */,
 				351A07EF2000550000636672 /* Resources */,
+				3500A51B2014B5D5009EC173 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -268,6 +283,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3500A51B2014B5D5009EC173 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		351A07ED2000550000636672 /* Sources */ = {
@@ -447,6 +479,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SleepDebtWatcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = esper.SleepDebtWatcher;
@@ -461,6 +497,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SleepDebtWatcher/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = esper.SleepDebtWatcher;
