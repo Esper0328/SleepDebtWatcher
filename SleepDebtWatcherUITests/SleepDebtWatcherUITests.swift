@@ -30,7 +30,7 @@ class SleepDebtWatcherUITests: XCTestCase {
 
     func testGoAndBackEachViewFromTopView(){
         let app = XCUIApplication()
-        let wait_time = 1.0
+        let wait_time = 0.0
         
         //Test Topview
         let bedtimePlanButton = app.buttons["bedtimePlanButton"]
@@ -94,9 +94,9 @@ class SleepDebtWatcherUITests: XCTestCase {
         let sleepDebtValueLabel = app.staticTexts["sleepDebtValueLabel"]
         let sleepDebtUnitLabel = app.staticTexts["sleepDebtUnitLabel"]
         let backToTopFromSleepDebtButton = app.buttons["backToTopFromSleepDebtButton"]
-        let barChartViewLabel = app.staticTexts["barChartViewLabel"]
+        let barDebtChartView = app.staticTexts["barDebtChartViewLabel"]
         
-        barChartViewLabel.tap()
+        barDebtChartView.tap()//Dummy to avoid warning
         
         XCTAssertTrue(sleepDebtViewLabel.exists)
         XCTAssertTrue(sleepStateLabel.exists)
