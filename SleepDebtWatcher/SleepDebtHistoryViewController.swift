@@ -57,7 +57,7 @@ class SleepDebtHistoryViewController: UIViewController {
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "ふさい")
         let xaxis = XAxis()
         xaxis.valueFormatter = BarChartFormatter()
-        barDebtChartView.xAxis.labelCount = BarChartFormatter().getNumberOfSign()
+        barDebtChartView.xAxis.labelCount = Calendar.current.weekdaySymbols.count
         //chartDataSet.label = "曜日"
         
         barDebtChartView.xAxis.valueFormatter = xaxis.valueFormatter
@@ -103,17 +103,10 @@ class SleepDebtHistoryViewController: UIViewController {
     }
     
     public class BarChartFormatter: NSObject, IAxisValueFormatter{
-        
         var weeks: [String]! = ["月","火","水","木","金","土","日"]
-        //ここに曜日ずらしを記述する
-        
-        
         public func stringForValue(_ value: Double, axis: AxisBase?) -> String {
             // 0 -> 月, 1 -> 火...
             return weeks[Int(value)]
-        }
-        public func getNumberOfSign() -> Int{
-            return weeks.count
         }
     }
     //Merged
