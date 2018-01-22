@@ -11,9 +11,73 @@ import XCTest
 
 class SleepDebtWatcherUITests: XCTestCase {
 
+    let app = XCUIApplication()
+    let wait_time = 0.0
+    
+    //TopViewController
+    var bedtimePlanButton: XCUIElement!
+    var bedtimeInputButton: XCUIElement!
+    var sleepDebtDisplayButton: XCUIElement!
+    
+    //BedtimePlanViewController
+    var bedtimePlanDatePicker: XCUIElement!
+    var bedtimePlanViewLabel: XCUIElement!
+    var timePlanSlotLabel: XCUIElement!
+    var timePlanCheckLabel: XCUIElement!
+    var backToTopFromBedtimePlanButton: XCUIElement!
+    var bedtimePlanSetButton: XCUIElement!
+    
+    //BedtimeInputViewController
+    var bedtimeDatePicker: XCUIElement!
+    var bedtimeInputViewLabel: XCUIElement!
+    var timeSlotLabel: XCUIElement!
+    var timeInputCheckLabel: XCUIElement!
+    var backToTopFromBedtimeInputButton: XCUIElement!
+    var bedtimeSetButton: XCUIElement!
+    
+    //SleepDebtHistoryViewController
+    var sleepDebtViewLabel: XCUIElement!
+    var sleepStateLabel: XCUIElement!
+    var sleepStateValueLabel: XCUIElement!
+    var sleepDebtLabel: XCUIElement!
+    var sleepDebtValueLabel: XCUIElement!
+    var sleepDebtUnitLabel: XCUIElement!
+    var backToTopFromSleepDebtButton: XCUIElement!
+    var barDebtChartView: XCUIElement!
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        //TopViewController
+        bedtimePlanButton = app.buttons["bedtimePlanButton"]
+        bedtimeInputButton = app.buttons["bedtimeInputButton"]
+        sleepDebtDisplayButton = app.buttons["sleepDebtDisplayButton"]
+        
+        //BedtimePlanViewController
+        bedtimePlanDatePicker = app.datePickers["bedtimePlanDatePicker"]
+        bedtimePlanViewLabel = app.staticTexts["bedtimePlanViewLabel"]
+        timePlanSlotLabel = app.staticTexts["timePlanSlotLabel"]
+        timePlanCheckLabel = app.staticTexts["timePlanCheckLabel"]
+        backToTopFromBedtimePlanButton = app.buttons["backToTopFromBedtimePlanButton"]
+        bedtimePlanSetButton = app.buttons["bedtimePlanSetButton"]
+
+        //BedtimeInputViewController
+        bedtimeDatePicker = app.datePickers["bedtimeDatePicker"]
+        bedtimeInputViewLabel = app.staticTexts["bedtimeInputViewLabel"]
+        timeSlotLabel = app.staticTexts["timeSlotLabel"]
+        timeInputCheckLabel = app.staticTexts["timeInputCheckLabel"]
+        backToTopFromBedtimeInputButton = app.buttons["backToTopFromBedtimeInput"]
+        bedtimeSetButton = app.buttons["bedtimeSetButton"]
+
+        //SleepDebtHistoryViewController
+        sleepDebtViewLabel = app.staticTexts["sleepDebtViewLabel"]
+        sleepStateLabel = app.staticTexts["sleepStateLabel"]
+        sleepStateValueLabel = app.staticTexts["sleepStateValueLabel"]
+        sleepDebtLabel = app.staticTexts["sleepDebtLabel"]
+        sleepDebtValueLabel = app.staticTexts["sleepDebtValueLabel"]
+        sleepDebtUnitLabel = app.staticTexts["sleepDebtUnitLabel"]
+        backToTopFromSleepDebtButton = app.buttons["backToTopFromSleepDebtButton"]
+        barDebtChartView = app.staticTexts["barDebtChartViewLabel"]
         
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
@@ -29,89 +93,34 @@ class SleepDebtWatcherUITests: XCTestCase {
     }
 
     func testGoAndBackEachViewFromTopView(){
-        let app = XCUIApplication()
-        let wait_time = 0.0
-        
-        //Test Topview
-        let bedtimePlanButton = app.buttons["bedtimePlanButton"]
-        let bedtimeInputButton = app.buttons["bedtimeInputButton"]
-        let sleepDebtDisplayButton = app.buttons["sleepDebtDisplayButton"]
-        
-        XCTAssertTrue(bedtimeInputButton.exists)
-        XCTAssertTrue(sleepDebtDisplayButton.exists)
-        XCTAssertTrue(bedtimePlanButton.exists)
-        
         //Test TopView<->BedtimePlanView
+        topViewControllerComponentsExist()
         bedtimePlanButton.tap()                             //TopView->BedtimePlanView
-        let bedtimePlanDatePicker = app.datePickers["bedtimePlanDatePicker"]
-        let bedtimePlanViewLabel = app.staticTexts["bedtimePlanViewLabel"]
-        let timePlanSlotLabel = app.staticTexts["timePlanSlotLabel"]
-        let timePlanCheckLabel = app.staticTexts["timePlanCheckLabel"]
-        let backToTopFromBedtimePlanButton = app.buttons["backToTopFromBedtimePlanButton"]
-        let bedtimePlanSetButton = app.buttons["bedtimePlanSetButton"]
         
-        XCTAssertTrue(bedtimePlanDatePicker.exists)
-        XCTAssertTrue(bedtimePlanViewLabel.exists)
-        XCTAssertTrue(timePlanSlotLabel.exists)
-        XCTAssertTrue(timePlanCheckLabel.exists)
-        XCTAssertTrue(backToTopFromBedtimePlanButton.exists)
-        XCTAssertTrue(bedtimePlanSetButton.exists)
-        
+        bedtimePlanViewControllerComponentsExist()
         backToTopFromBedtimePlanButton.tap()                //BedtimePlanView->TopView
         Thread.sleep(forTimeInterval: wait_time)
         
         //Test TopView<->BedtimeInputView
         bedtimeInputButton.tap()                            //TopView->BedtimeInputView
         Thread.sleep(forTimeInterval: wait_time)
-        
-        let bedtimeDatePicker = app.datePickers["bedtimeDatePicker"]
-        let bedtimeInputViewLabel = app.staticTexts["bedtimeInputViewLabel"]
-        let timeSlotLabel = app.staticTexts["timeSlotLabel"]
-        let timeInputCheckLabel = app.staticTexts["timeInputCheckLabel"]
-        let backToTopFromBedtimeInputButton = app.buttons["backToTopFromBedtimeInput"]
-        let bedtimeSetButton = app.buttons["bedtimeSetButton"]
-        
-        XCTAssertTrue(bedtimeDatePicker.exists)
-        XCTAssertTrue(bedtimeInputViewLabel.exists)
-        XCTAssertTrue(timeSlotLabel.exists)
-        XCTAssertTrue(timeInputCheckLabel.exists)
-        XCTAssertTrue(backToTopFromBedtimeInputButton.exists)
-        XCTAssertTrue(bedtimeSetButton.exists)
-        
+        bedtimeInputViewExist()
         backToTopFromBedtimeInputButton.tap()               //BedtimeInputView->TopView
         Thread.sleep(forTimeInterval: wait_time)
         
         //Test TopView<->SleepDebtHistoryView
         sleepDebtDisplayButton.tap()                        //TopView->SleepDebtHistoryView
         Thread.sleep(forTimeInterval: wait_time)
-        
-        let sleepDebtViewLabel = app.staticTexts["sleepDebtViewLabel"]
-        let sleepStateLabel = app.staticTexts["sleepStateLabel"]
-        let sleepStateValueLabel = app.staticTexts["sleepStateValueLabel"]
-        let sleepDebtLabel = app.staticTexts["sleepDebtLabel"]
-        let sleepDebtValueLabel = app.staticTexts["sleepDebtValueLabel"]
-        let sleepDebtUnitLabel = app.staticTexts["sleepDebtUnitLabel"]
-        let backToTopFromSleepDebtButton = app.buttons["backToTopFromSleepDebtButton"]
-        let barDebtChartView = app.staticTexts["barDebtChartViewLabel"]
-        
+
         barDebtChartView.tap()//Dummy to avoid warning
-        
-        XCTAssertTrue(sleepDebtViewLabel.exists)
-        XCTAssertTrue(sleepStateLabel.exists)
-        XCTAssertTrue(sleepStateValueLabel.exists)
-        XCTAssertTrue(sleepDebtLabel.exists)
-        XCTAssertTrue(sleepDebtValueLabel.exists)
-        XCTAssertTrue(sleepDebtUnitLabel.exists)
-        XCTAssertTrue(backToTopFromSleepDebtButton.exists)
+        sleepDebtHistoryViewControllerComponentsExist()
+
         backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopView
         Thread.sleep(forTimeInterval: wait_time)
         
         //Test TopView->BedtimeInputView->SleepDebtHistoryView->TopView
         bedtimeInputButton.tap()                            //TopView->BedtimeInputView
         XCTAssertEqual(timeSlotLabel.label, "就寝時間")
-        
-        //timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
-        //wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 4, minute: 55)
         
         //Set Sleep Of Time
         bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Jan 17")
@@ -137,6 +146,38 @@ class SleepDebtWatcherUITests: XCTestCase {
         backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopVie
         Thread.sleep(forTimeInterval: wait_time)
     }
+    
+    func topViewControllerComponentsExist(){
+        XCTAssertTrue(bedtimeInputButton.exists)
+        XCTAssertTrue(sleepDebtDisplayButton.exists)
+        XCTAssertTrue(bedtimePlanButton.exists)
+    }
+    
+    func bedtimePlanViewControllerComponentsExist(){
+        XCTAssertTrue(bedtimePlanDatePicker.exists)
+        XCTAssertTrue(bedtimePlanViewLabel.exists)
+        XCTAssertTrue(timePlanSlotLabel.exists)
+        XCTAssertTrue(timePlanCheckLabel.exists)
+        XCTAssertTrue(backToTopFromBedtimePlanButton.exists)
+        XCTAssertTrue(bedtimePlanSetButton.exists)
+    }
+    
+    func bedtimeInputViewExist(){
+        XCTAssertTrue(bedtimeDatePicker.exists)
+        XCTAssertTrue(bedtimeInputViewLabel.exists)
+        XCTAssertTrue(timeSlotLabel.exists)
+        XCTAssertTrue(timeInputCheckLabel.exists)
+        XCTAssertTrue(backToTopFromBedtimeInputButton.exists)
+        XCTAssertTrue(bedtimeSetButton.exists)
+    }
 
-
+    func sleepDebtHistoryViewControllerComponentsExist(){
+        XCTAssertTrue(sleepDebtViewLabel.exists)
+        XCTAssertTrue(sleepStateLabel.exists)
+        XCTAssertTrue(sleepStateValueLabel.exists)
+        XCTAssertTrue(sleepDebtLabel.exists)
+        XCTAssertTrue(sleepDebtValueLabel.exists)
+        XCTAssertTrue(sleepDebtUnitLabel.exists)
+        XCTAssertTrue(backToTopFromSleepDebtButton.exists)
+    }
 }
