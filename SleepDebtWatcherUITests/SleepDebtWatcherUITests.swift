@@ -107,7 +107,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         Thread.sleep(forTimeInterval: wait_time)
         sleepDebtDisplayButton.tap()                        //TopView->SleepDebtHistoryView
         Thread.sleep(forTimeInterval: wait_time)
-        barDebtChartView.tap()//Dummy to avoid warning
+        barDebtChartView.tap()                              //Dummy to avoid warning
         sleepDebtHistoryViewControllerComponentsExist()
         backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopView
         Thread.sleep(forTimeInterval: wait_time)
@@ -116,10 +116,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertEqual(timeSlotLabel.label, "就寝時間")
         
         //Set Sleep Of Time
-        bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Jan 17")
-        bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "9")
-        bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "55")
-        bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: "PM")
+        setbedtimeDatePicker(date: "Jan 17", hour: "9", minute: "55", AMorPM: "PM")
         Thread.sleep(forTimeInterval: wait_time)
         bedtimeSetButton.tap()
         Thread.sleep(forTimeInterval: wait_time)
@@ -133,30 +130,6 @@ class SleepDebtWatcherUITests: XCTestCase {
         bedtimeSetButton.tap()
         XCTAssertEqual(sleepDebtValueLabel.label, "1")
         backToTopFromSleepDebtButton.tap()
-        
-        /*
-        bedtimeInputButton.tap()
-        XCTAssertEqual(timeSlotLabel.label, "就寝時間")
-        
-        //Set Sleep Of Time
-        bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Jan 17")
-        bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "9")
-        bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "55")
-        bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: "PM")
-        Thread.sleep(forTimeInterval: wait_time)
-        bedtimeSetButton.tap()
-        Thread.sleep(forTimeInterval: wait_time)
-        XCTAssertEqual(timeSlotLabel.label, "起床時間")
-        
-        //Set Wake Time
-        bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Jan 18")
-        bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "4")
-        bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "55")
-        bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: "AM")
-        bedtimeSetButton.tap()
-        XCTAssertEqual(sleepDebtValueLabel.label, "1")
-        backToTopFromSleepDebtButton.tap()
-        */
         
     }
     
@@ -192,5 +165,12 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(sleepDebtValueLabel.exists)
         XCTAssertTrue(sleepDebtUnitLabel.exists)
         XCTAssertTrue(backToTopFromSleepDebtButton.exists)
+    }
+    
+    func setbedtimeDatePicker(date : String, hour : String, minute : String, AMorPM : String){
+        bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: date)
+        bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: hour)
+        bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: minute)
+        bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: AMorPM)
     }
 }
