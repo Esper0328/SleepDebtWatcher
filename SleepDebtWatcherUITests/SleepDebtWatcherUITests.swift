@@ -96,30 +96,23 @@ class SleepDebtWatcherUITests: XCTestCase {
         //Test TopView<->BedtimePlanView
         topViewControllerComponentsExist()
         bedtimePlanButton.tap()                             //TopView->BedtimePlanView
-        
+        Thread.sleep(forTimeInterval: wait_time)
         bedtimePlanViewControllerComponentsExist()
         backToTopFromBedtimePlanButton.tap()                //BedtimePlanView->TopView
         Thread.sleep(forTimeInterval: wait_time)
-        
-        //Test TopView<->BedtimeInputView
         bedtimeInputButton.tap()                            //TopView->BedtimeInputView
         Thread.sleep(forTimeInterval: wait_time)
         bedtimeInputViewExist()
         backToTopFromBedtimeInputButton.tap()               //BedtimeInputView->TopView
         Thread.sleep(forTimeInterval: wait_time)
-        
-        //Test TopView<->SleepDebtHistoryView
         sleepDebtDisplayButton.tap()                        //TopView->SleepDebtHistoryView
         Thread.sleep(forTimeInterval: wait_time)
-
         barDebtChartView.tap()//Dummy to avoid warning
         sleepDebtHistoryViewControllerComponentsExist()
-
         backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopView
         Thread.sleep(forTimeInterval: wait_time)
         
-        //Test TopView->BedtimeInputView->SleepDebtHistoryView->TopView
-        bedtimeInputButton.tap()                            //TopView->BedtimeInputView
+        bedtimeInputButton.tap()
         XCTAssertEqual(timeSlotLabel.label, "就寝時間")
         
         //Set Sleep Of Time
@@ -129,22 +122,42 @@ class SleepDebtWatcherUITests: XCTestCase {
         bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: "PM")
         Thread.sleep(forTimeInterval: wait_time)
         bedtimeSetButton.tap()
-        XCTAssertEqual(timeSlotLabel.label, "起床時間")
         Thread.sleep(forTimeInterval: wait_time)
+        XCTAssertEqual(timeSlotLabel.label, "起床時間")
         
         //Set Wake Time
         bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Jan 18")
         bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "4")
         bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "55")
         bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: "AM")
-
-        bedtimeSetButton.tap()                              //BedtimeInputView->SleepDebtHistoryView
-        
+        bedtimeSetButton.tap()
         XCTAssertEqual(sleepDebtValueLabel.label, "1")
+        backToTopFromSleepDebtButton.tap()
         
-        //TODO test SleepDebt
-        backToTopFromSleepDebtButton.tap()                  //SleepDebtHistoryView->TopVie
+        /*
+        bedtimeInputButton.tap()
+        XCTAssertEqual(timeSlotLabel.label, "就寝時間")
+        
+        //Set Sleep Of Time
+        bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Jan 17")
+        bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "9")
+        bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "55")
+        bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: "PM")
         Thread.sleep(forTimeInterval: wait_time)
+        bedtimeSetButton.tap()
+        Thread.sleep(forTimeInterval: wait_time)
+        XCTAssertEqual(timeSlotLabel.label, "起床時間")
+        
+        //Set Wake Time
+        bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: "Jan 18")
+        bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: "4")
+        bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: "55")
+        bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: "AM")
+        bedtimeSetButton.tap()
+        XCTAssertEqual(sleepDebtValueLabel.label, "1")
+        backToTopFromSleepDebtButton.tap()
+        */
+        
     }
     
     func topViewControllerComponentsExist(){
