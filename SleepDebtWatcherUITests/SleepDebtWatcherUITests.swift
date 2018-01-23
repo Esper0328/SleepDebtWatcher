@@ -112,17 +112,17 @@ class SleepDebtWatcherUITests: XCTestCase {
         bedtimeInputTest(sleep_date : "Jan 17", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
                          wake_date : "Jan 18", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "1.0")
         bedtimeInputTest(sleep_date : "Jan 18", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
-                         wake_date : "Jan 19", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "1.0")
+                         wake_date : "Jan 19", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "2.0")
         bedtimeInputTest(sleep_date : "Jan 19", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
-                         wake_date : "Jan 20", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "1.0")
+                         wake_date : "Jan 20", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "3.0")
         bedtimeInputTest(sleep_date : "Jan 20", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
-                         wake_date : "Jan 21", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "1.0")
+                         wake_date : "Jan 21", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "4.0")
         bedtimeInputTest(sleep_date : "Jan 21", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
-                         wake_date : "Jan 22", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "1.0")
+                         wake_date : "Jan 22", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "5.0")
         bedtimeInputTest(sleep_date : "Jan 22", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
-                         wake_date : "Jan 23", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "1.0")
+                         wake_date : "Jan 23", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "6.0")
         bedtimeInputTest(sleep_date : "Jan 23", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
-                         wake_date : "Jan 24", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "1.0")
+                         wake_date : "Jan 24", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "7.0")
     }
     
     func topViewControllerComponentsExistTest(){

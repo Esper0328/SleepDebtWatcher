@@ -35,6 +35,8 @@ class BedtimeInputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         timeSlot.text = "就寝時間"
+        let userDefaults = UserDefaults.standard
+        sleepDebt = userDefaults.double(forKey: "sleepDebt")
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -102,7 +104,6 @@ class BedtimeInputViewController: UIViewController {
         else {
             //Do Nothing
         }
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
@@ -110,6 +111,8 @@ class BedtimeInputViewController: UIViewController {
             let viewController: SleepDebtHistoryViewController = (segue.destination as? SleepDebtHistoryViewController)!
             viewController.sleepDebtValue = sleepDebt
             viewController.weekdayOfCalcBedtime = weekdayOfCalcBedtime
+            let userDefaults = UserDefaults.standard
+            userDefaults.set(sleepDebt, forKey: "sleepDebt")
         }
     }
 }
