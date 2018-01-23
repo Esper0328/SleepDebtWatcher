@@ -73,58 +73,55 @@ class SleepDebtWatcherTests: XCTestCase {
     func testCalcBedtime_validTime_hourCalculated(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 6, minute: 55)
-        let _bedtime_hour = 9
+        let bedtime = 9.0
         initBedtimeInputViewControllerWithCalcBedtime(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
-        XCTAssertEqual(bedtimeInputView.bedtime_hour, _bedtime_hour)
+        XCTAssertEqual(bedtimeInputView.bedtime, bedtime)
     }
     
     func testCalcBedtime_validTime_hourAndMinuteCalculated(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
-        let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 6, minute: 45)
-        let _bedtime_hour = 8
-        let _bedtime_minute = 50
+        let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 6, minute: 25)
+        let bedtime = 8.5
+
         initBedtimeInputViewControllerWithCalcBedtime(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
-        XCTAssertEqual(bedtimeInputView.bedtime_hour, _bedtime_hour)
-        XCTAssertEqual(bedtimeInputView.bedtime_minute, _bedtime_minute)
+        XCTAssertEqual(bedtimeInputView.bedtime, bedtime)
     }
     
     func testCalcBedtime_invalidSameTime_hourAndMinuteAreZero(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         initBedtimeInputViewControllerWithCalcBedtime(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
-        XCTAssertEqual(bedtimeInputView.bedtime_hour, 0)
-        XCTAssertEqual(bedtimeInputView.bedtime_minute, 0)
+        XCTAssertEqual(bedtimeInputView.bedtime, 0.0)
     }
     
     func testCalcBedtime_invalidReversedTime_hourAndMinuteAreZero() {
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 18, hour: 6, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         initBedtimeInputViewControllerWithCalcBedtime(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
-        XCTAssertEqual(bedtimeInputView.bedtime_hour, 0)
-        XCTAssertEqual(bedtimeInputView.bedtime_minute, 0)
+        XCTAssertEqual(bedtimeInputView.bedtime, 0.0)
     }
     func testCalcSleepDebt_lessThanThresh_sleepDebtIncreased(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 4, minute: 55)
-        let _sleepDebt_hour = 1
+        let sleepDebt = 1.0
         initBedtimeInputViewControllerWithCalcSleepDebt(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
-        XCTAssertEqual(bedtimeInputView.sleepDebt_hour, _sleepDebt_hour)
+        XCTAssertEqual(bedtimeInputView.sleepDebt, sleepDebt)
     }
     
     func testCalcSleepDebt_equalsThresh_sleepDebtIsSame(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
-        let _sleepDebt_hour = 0
+        let sleepDebt = 0.0
         initBedtimeInputViewControllerWithCalcSleepDebt(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
-        XCTAssertEqual(bedtimeInputView.sleepDebt_hour, _sleepDebt_hour)
+        XCTAssertEqual(bedtimeInputView.sleepDebt, sleepDebt)
     }
     
     func testCalcSleepDebt_moreThanThresh_sleepDebtDecreased(){
         let timeOfSleep = DateComponents(year: 2017, month: 1, day: 17, hour: 21, minute: 55)
         let wakeTime = DateComponents(year: 2017, month: 1, day: 18, hour: 8, minute: 55)
-        let _sleepDebt_hour = 0
+        let sleepDebt = 0.0
         initBedtimeInputViewControllerWithCalcSleepDebt(rv_timeOfSleep: timeOfSleep, rv_wakeTime: wakeTime)
-        XCTAssertEqual(bedtimeInputView.sleepDebt_hour, _sleepDebt_hour)
+        XCTAssertEqual(bedtimeInputView.sleepDebt, sleepDebt)
     }
 
     //ToDo

@@ -27,10 +27,8 @@ class BedtimeInputViewController: UIViewController {
     
     var timeOfSleep: DateComponents!
     var wakeTime: DateComponents!
-    var bedtime_hour: Int! = 0
-    var bedtime_minute: Int! = 0
-    var sleepDebt_hour: Int! = 0
-    var sleepDebt_minute: Int! = 0
+    var bedtime: Double! = 0.0       //unit:[H]
+    var sleepDebt: Double! = 0.0     //unit:[H]
     var sleepInputState: SleepInputMode = .TimeOfSleep
     var weekdayOfCalcBedtime : Int! = 0
     
@@ -79,13 +77,11 @@ class BedtimeInputViewController: UIViewController {
             let dateFrom = calendar.date(from: timeOfSleep)!
             let dateTo = calendar.date(from: wakeTime)!
             let comps = calendar.dateComponents([.hour, .minute], from: dateFrom, to: dateTo)
-            bedtime_hour = comps.hour
-            bedtime_minute = comps.minute
+            bedtime = Double(comps.hour!) + Double(comps.minute!)/60.0
             weekdayOfCalcBedtime = calendar.component(.weekday, from: dateTo)
         }
         else{
-            bedtime_hour = 0
-            bedtime_minute = 0
+            bedtime = 0.0
             weekdayOfCalcBedtime = 0
         }
         
@@ -93,14 +89,14 @@ class BedtimeInputViewController: UIViewController {
     
     func calcSleepDebt(){
         calcBedtime()
-        let sleepTimeThreshold = 8
-        if((bedtime_hour > 0) && (bedtime_hour < sleepTimeThreshold)){
-            sleepDebt_hour = sleepDebt_hour + (sleepTimeThreshold - bedtime_hour)
+        let sleepTimeThreshold = 8.0
+        if((bedtime > 0) && (bedtime < sleepTimeThreshold)){
+            sleepDebt = sleepDebt + (sleepTimeThreshold - bedtime)
         }
-        else if((bedtime_hour >= sleepTimeThreshold) && (sleepDebt_hour >= 0)){
-            sleepDebt_hour = sleepDebt_hour - (bedtime_hour - sleepTimeThreshold)
-            if(sleepDebt_hour < 0){
-                sleepDebt_hour = 0
+        else if((bedtime >= sleepTimeThreshold) && (sleepDebt >= 0)){
+            sleepDebt = sleepDebt - (bedtime - sleepTimeThreshold)
+            if(sleepDebt < 0){
+                sleepDebt = 0
             }
         }
         else {
@@ -112,7 +108,7 @@ class BedtimeInputViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if (segue.identifier == "sleepDebtFromInput"){
             let viewController: SleepDebtHistoryViewController = (segue.destination as? SleepDebtHistoryViewController)!
-            viewController.sleepDebtValue = sleepDebt_hour
+            viewController.sleepDebtValue = sleepDebt
             viewController.weekdayOfCalcBedtime = weekdayOfCalcBedtime
         }
     }

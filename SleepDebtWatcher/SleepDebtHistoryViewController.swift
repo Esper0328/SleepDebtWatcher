@@ -14,13 +14,13 @@ class SleepDebtHistoryViewController: UIViewController {
 
     
     @IBOutlet weak var sleepDebtValueLabel: UILabel!
-    var sleepDebtValue: Int! = 0
+    var sleepDebtValue:Double = 0
     var weekdayOfCalcBedtime:Int = 0
-    
+    var sleepDebt:[Double] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
     //Merged
-    var test_data = [10.0,20.0,30.0,40.0,55.0,63.0,70.5]
-    let highLimitTime = 40.0
-    let midLimitTime = 20.0
+    var test_data = [1.0,2.0,3.0,4.0,5.0,6.0,7.0]
+    let highLimitTime = 4.0
+    let midLimitTime = 2.0
     //Merged
     
     @IBOutlet weak var barDebtChartView: BarChartView!
@@ -46,7 +46,7 @@ class SleepDebtHistoryViewController: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "ふさい")
+        let chartDataSet = BarChartDataSet(values: dataEntries, label: "負債")
         let xaxis = XAxis()
         xaxis.valueFormatter = BarChartFormatter()
         barDebtChartView.xAxis.labelCount = Calendar.current.weekdaySymbols.count
