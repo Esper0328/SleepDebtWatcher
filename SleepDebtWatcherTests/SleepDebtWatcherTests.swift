@@ -124,10 +124,21 @@ class SleepDebtWatcherTests: XCTestCase {
         XCTAssertEqual(bedtimeInputView.sleepDebt, sleepDebt)
     }
 
-    //ToDo
-    //dealing with minute
-    //add Test Case to calcSleepDebt for full test pass
-    //design weekly data
+    func testSetSleepDebt_SundaySleepDebt_setValue1(){
+        let sleepDebtHistoryView = SleepDebtHistoryViewController()
+        let Sunday:Int = 0
+        let sleepDebt:Double = 1.0
+        sleepDebtHistoryView.setSleepDebt(weekday: Sunday, rv_sleepDebt: sleepDebt)
+        XCTAssertEqual(sleepDebtHistoryView.sleepDebt[Sunday], 1.0)
+    }
+    
+    func testSetSleepDebt_SaturdaySleepDebt_setValue2(){
+        let sleepDebtHistoryView = SleepDebtHistoryViewController()
+        let Saturday:Int = 6
+        let sleepDebt:Double = 2.0
+        sleepDebtHistoryView.setSleepDebt(weekday: Saturday, rv_sleepDebt: sleepDebt)
+        XCTAssertEqual(sleepDebtHistoryView.sleepDebt[Saturday], 2.0)
+    }
     
     func testPerformanceExample() {
         // This is an example of a performance test case.

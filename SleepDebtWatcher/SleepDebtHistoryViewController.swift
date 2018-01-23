@@ -36,6 +36,9 @@ class SleepDebtHistoryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func setSleepDebt(weekday: Int, rv_sleepDebt: Double){
+        sleepDebt[weekday] = rv_sleepDebt
+    }
     //Merged
     func setChart(y: [Double]) {
         // y軸
