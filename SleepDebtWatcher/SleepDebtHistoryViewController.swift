@@ -24,10 +24,18 @@ class SleepDebtHistoryViewController: UIViewController {
     @IBAction func resetSleepDebtEvent(_ sender: Any) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(0.0, forKey: "sleepDebt")
+        for i in 0..<sleepDebt.count {
+            userDefaults.set(0.0, forKey: "sleepDebt" + String(i))
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         sleepDebtValueLabel.text = String(sleepDebtValue)
+        let userDefaults = UserDefaults.standard
+        for i in 0..<sleepDebt.count {
+            sleepDebt[i] = userDefaults.double(forKey: "sleepDebt" + String(i))
+        }
+        
         setChart(y: sleepDebt)
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -55,11 +63,9 @@ class SleepDebtHistoryViewController: UIViewController {
         let xaxis = XAxis()
         xaxis.valueFormatter = BarChartFormatter()
         barDebtChartView.xAxis.labelCount = Calendar.current.weekdaySymbols.count
-        
         barDebtChartView.xAxis.valueFormatter = xaxis.valueFormatter
         barDebtChartView.data = BarChartData(dataSet: chartDataSet)
         barDebtChartView.xAxis.labelPosition = .bottom
-        
         barDebtChartView.leftAxis.enabled = true
         barDebtChartView.leftAxis.labelCount = Int(4)
         barDebtChartView.pinchZoomEnabled = false

@@ -109,9 +109,15 @@ class BedtimeInputViewController: UIViewController {
         if (segue.identifier == "sleepDebtFromInput"){
             let viewController: SleepDebtHistoryViewController = (segue.destination as? SleepDebtHistoryViewController)!
             viewController.sleepDebtValue = sleepDebt
-            viewController.setSleepDebt(weekday: weekdayOfCalcBedtime % 7 , rv_sleepDebt: sleepDebt)//from 1-7(from Apple spec of Weekday) to 0-6(for array index)
+            let weekdayFromZero = weekdayOfCalcBedtime % 7
+            viewController.setSleepDebt(weekday: weekdayFromZero , rv_sleepDebt: sleepDebt)//from 1-7(from Apple spec of Weekday) to 0-6(for array index)
             let userDefaults = UserDefaults.standard
             userDefaults.set(sleepDebt, forKey: "sleepDebt")
+            for i in 0..<7 {
+                if(i == weekdayFromZero){
+                    userDefaults.set(sleepDebt, forKey: "sleepDebt" + String(weekdayFromZero))
+                }
+            }
         }
     }
 }
