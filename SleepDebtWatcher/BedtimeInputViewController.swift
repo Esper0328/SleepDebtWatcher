@@ -44,6 +44,7 @@ class BedtimeInputViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     func setTimeOfSleep(rv_timeOfSleep: DateComponents){
         timeOfSleep = rv_timeOfSleep
     }
@@ -58,7 +59,6 @@ class BedtimeInputViewController: UIViewController {
             timeOfSleep = changeddate
             sleepInputState = .WakeTime
             timeSlot.text = "起床時間"
-            
         case .WakeTime:
             wakeTime = changeddate
             calcSleepDebt()
@@ -86,7 +86,6 @@ class BedtimeInputViewController: UIViewController {
             bedtime = 0.0
             weekdayOfCalcBedtime = 0
         }
-        
     }
     
     func calcSleepDebt(){
@@ -110,7 +109,7 @@ class BedtimeInputViewController: UIViewController {
         if (segue.identifier == "sleepDebtFromInput"){
             let viewController: SleepDebtHistoryViewController = (segue.destination as? SleepDebtHistoryViewController)!
             viewController.sleepDebtValue = sleepDebt
-            viewController.weekdayOfCalcBedtime = weekdayOfCalcBedtime
+            viewController.setSleepDebt(weekday: weekdayOfCalcBedtime % 7 , rv_sleepDebt: sleepDebt)//from 1-7(from Apple spec of Weekday) to 0-6(for array index)
             let userDefaults = UserDefaults.standard
             userDefaults.set(sleepDebt, forKey: "sleepDebt")
         }

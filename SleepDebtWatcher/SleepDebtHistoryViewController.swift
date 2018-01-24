@@ -15,19 +15,20 @@ class SleepDebtHistoryViewController: UIViewController {
     
     @IBOutlet weak var sleepDebtValueLabel: UILabel!
     var sleepDebtValue:Double = 0
-    var weekdayOfCalcBedtime:Int = 0
     var sleepDebt:[Double] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
-    //Merged
-    var test_data = [1.0,2.0,3.0,4.0,5.0,6.0,7.0]
     let highLimitTime = 4.0
     let midLimitTime = 2.0
-    //Merged
-    
+
     @IBOutlet weak var barDebtChartView: BarChartView!
+
+    @IBAction func resetSleepDebtEvent(_ sender: Any) {
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(0.0, forKey: "sleepDebt")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         sleepDebtValueLabel.text = String(sleepDebtValue)
-        setChart(y: test_data)
+        setChart(y: sleepDebt)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -39,6 +40,7 @@ class SleepDebtHistoryViewController: UIViewController {
     func setSleepDebt(weekday: Int, rv_sleepDebt: Double){
         sleepDebt[weekday] = rv_sleepDebt
     }
+    
     //Merged
     func setChart(y: [Double]) {
         // y軸
@@ -56,7 +58,6 @@ class SleepDebtHistoryViewController: UIViewController {
         
         barDebtChartView.xAxis.valueFormatter = xaxis.valueFormatter
         barDebtChartView.data = BarChartData(dataSet: chartDataSet)
-        // x軸のラベルをボトムに表示
         barDebtChartView.xAxis.labelPosition = .bottom
         
         barDebtChartView.leftAxis.enabled = true
@@ -72,16 +73,12 @@ class SleepDebtHistoryViewController: UIViewController {
         let highLimitLine = ChartLimitLine(limit: highLimitTime, label: "危険水準")
         barDebtChartView.leftAxis.addLimitLine(highLimitLine)
         
-        // グラフの色
         //chartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]
         
         //力技で7種類の色を指定している = グラフ横軸の要素数がmax 7個。
         chartDataSet.colors = [setColor(value: y[0]),setColor(value: y[1]),setColor(value: y[2]),setColor(value: y[3]),setColor(value: y[4]),setColor(value: y[5]),setColor(value: y[6])]
         
-        // グラフの背景色
-        //barDebtView.backgroundColor = UIColor(red: 189/255, green: 195/255, blue: 199/255, alpha: 1)
         barDebtChartView.backgroundColor = UIColor.white
-        // アニメーション
         barDebtChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     

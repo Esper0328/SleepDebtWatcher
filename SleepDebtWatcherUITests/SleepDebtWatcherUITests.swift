@@ -44,10 +44,12 @@ class SleepDebtWatcherUITests: XCTestCase {
     var sleepDebtUnitLabel: XCUIElement!
     var backToTopFromSleepDebtButton: XCUIElement!
     var barDebtChartView: XCUIElement!
+    var resetSleepDebtButton: XCUIElement!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+
         //TopViewController
         bedtimePlanButton = app.buttons["bedtimePlanButton"]
         bedtimeInputButton = app.buttons["bedtimeInputButton"]
@@ -78,11 +80,12 @@ class SleepDebtWatcherUITests: XCTestCase {
         sleepDebtUnitLabel = app.staticTexts["sleepDebtUnitLabel"]
         backToTopFromSleepDebtButton = app.buttons["backToTopFromSleepDebtButton"]
         barDebtChartView = app.staticTexts["barDebtChartViewLabel"]
+        resetSleepDebtButton = app.buttons["resetSleepDebtButton"]
         
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
         // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        app.launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
@@ -91,24 +94,17 @@ class SleepDebtWatcherUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+    
+    func initialize(){
+        //reset UserDefaults
+        tapAndWait(button: sleepDebtDisplayButton, wait_time: no_wait)
+        tapAndWait(button: resetSleepDebtButton, wait_time: no_wait)
+        tapAndWait(button: backToTopFromSleepDebtButton, wait_time: no_wait)
+    }
 
-    func testGoAndBackEachViewFromTopView(){
-        //Test TopView<->BedtimePlanView
-        topViewControllerComponentsExistTest()
-        tapAndWait(button: bedtimePlanButton, wait_time: no_wait)               //TopView->BedtimePlanView
-        bedtimePlanViewControllerComponentsExistTest()
-        
-        tapAndWait(button: backToTopFromBedtimePlanButton, wait_time: no_wait)  //BedtimePlanView->TopView
-        tapAndWait(button: bedtimeInputButton, wait_time: no_wait)              //TopView->BedtimeInputView
-        bedtimeInputViewExistTest()
-        
-        tapAndWait(button: backToTopFromBedtimeInputButton, wait_time: no_wait) //BedtimeInputView->TopView
-        tapAndWait(button: sleepDebtDisplayButton, wait_time: no_wait)          //TopView->SleepDebtHistoryView
-
-        barDebtChartView.tap()                                                  //DummyTest to avoid warning
-        sleepDebtHistoryViewControllerComponentsExistTest()
-        tapAndWait(button: backToTopFromSleepDebtButton, wait_time: no_wait)    //SleepDebtHistoryView->TopView
-
+    func testAllUI(){
+        initialize()//reset UserDefaults
+        goAndBackEachViewFromTopViewTest()
         bedtimeInputTest(sleep_date : "Jan 17", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
                          wake_date : "Jan 18", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "1.0")
         bedtimeInputTest(sleep_date : "Jan 18", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
@@ -123,6 +119,23 @@ class SleepDebtWatcherUITests: XCTestCase {
                          wake_date : "Jan 23", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "6.0")
         bedtimeInputTest(sleep_date : "Jan 23", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
                          wake_date : "Jan 24", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "7.0")
+    }
+    
+    func goAndBackEachViewFromTopViewTest() {
+        topViewControllerComponentsExistTest()
+        tapAndWait(button: bedtimePlanButton, wait_time: no_wait)               //TopView->BedtimePlanView
+        bedtimePlanViewControllerComponentsExistTest()
+        
+        tapAndWait(button: backToTopFromBedtimePlanButton, wait_time: no_wait)  //BedtimePlanView->TopView
+        tapAndWait(button: bedtimeInputButton, wait_time: no_wait)              //TopView->BedtimeInputView
+        bedtimeInputViewExistTest()
+        
+        tapAndWait(button: backToTopFromBedtimeInputButton, wait_time: no_wait) //BedtimeInputView->TopView
+        tapAndWait(button: sleepDebtDisplayButton, wait_time: no_wait)          //TopView->SleepDebtHistoryView
+        
+        barDebtChartView.tap()                                                  //DummyTest to avoid warning
+        sleepDebtHistoryViewControllerComponentsExistTest()
+        tapAndWait(button: backToTopFromSleepDebtButton, wait_time: no_wait)    //SleepDebtHistoryView->TopView
     }
     
     func topViewControllerComponentsExistTest(){
@@ -157,6 +170,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(sleepDebtValueLabel.exists)
         XCTAssertTrue(sleepDebtUnitLabel.exists)
         XCTAssertTrue(backToTopFromSleepDebtButton.exists)
+        XCTAssertTrue(resetSleepDebtButton.exists)
     }
     
     func bedtimeInputTest(sleep_date: String, sleep_hour: String, sleep_minute: String, sleep_AMorPM: String,
@@ -172,8 +186,6 @@ class SleepDebtWatcherUITests: XCTestCase {
         setbedtimeDatePickerAndWait(date: wake_date, hour: wake_hour, minute: wake_minute, AMorPM: wake_AMorPM, wait_time: no_wait)
         tapAndWait(button: bedtimeSetButton, wait_time: no_wait)
         XCTAssertEqual(sleepDebtValueLabel.label, sleepDebtValue)
-        
-        
         tapAndWait(button: backToTopFromSleepDebtButton, wait_time: no_wait)
     }
     
