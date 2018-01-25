@@ -99,9 +99,12 @@ class SleepDebtHistoryViewController: UIViewController {
     func rotate(input_data: inout [Int], shift: Int ){
         var corrected_shift = shift
         while(corrected_shift < 0){
-            corrected_shift = shift + 7
+            corrected_shift = shift + input_data.count
         }
-        if(shift == 0){
+        while(corrected_shift >= input_data.count){
+            corrected_shift = shift - input_data.count
+        }
+        if(corrected_shift == 0){
             
         }
         else {
