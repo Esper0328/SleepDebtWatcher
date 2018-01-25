@@ -140,6 +140,24 @@ class SleepDebtWatcherTests: XCTestCase {
         XCTAssertEqual(sleepDebtHistoryView.sleepDebt[Saturday], 2.0)
     }
     
+    func testReverse_2LeftShift_2LeftShiftFromInput(){
+        let sleepDebtHistoryView = SleepDebtHistoryViewController()
+        var input_array = [10,20,30,40,50,60,70]
+        let output_array = [30,40,50,60,70,10,20]
+        let shift = 2
+        sleepDebtHistoryView.rotate(input_data: &input_array, shift: shift)
+        XCTAssertEqual(input_array, output_array)
+    }
+    
+    func testReverse_minus2LeftShift_2LeftShiftFromInput(){
+        let sleepDebtHistoryView = SleepDebtHistoryViewController()
+        var input_array = [10,20,30,40,50,60,70]
+        let output_array = [60,70,10,20,30,40,50]
+        let shift = -2
+        sleepDebtHistoryView.rotate(input_data: &input_array, shift: shift)
+        XCTAssertEqual(input_array, output_array)
+    }
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {

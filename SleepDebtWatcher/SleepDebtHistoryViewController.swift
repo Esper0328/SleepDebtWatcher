@@ -88,12 +88,44 @@ class SleepDebtHistoryViewController: UIViewController {
         barDebtChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
     }
     
-    //仮のしきい値
     func setColor(value: Double) -> UIColor{
         if(value < midLimitTime){ return UIColor.green }
         else if(value <= highLimitTime && value >= midLimitTime){ return UIColor.yellow }
         else if(value > highLimitTime){ return UIColor.red }
         else { return UIColor.black }
+    }
+    
+    
+    func rotate(input_data: inout [Int], shift: Int ){
+        var corrected_shift = shift
+        while(corrected_shift < 0){
+            corrected_shift = shift + 7
+        }
+        if(shift == 0){
+            
+        }
+        else {
+            reverse(input_data: &input_data, rv_start: 0, rv_end: corrected_shift - 1)
+            reverse(input_data: &input_data, rv_start: corrected_shift, rv_end: input_data.count - 1)
+            reverse(input_data: &input_data, rv_start: 0, rv_end: input_data.count - 1)
+        }
+    }
+    
+    func reverse(input_data: inout [Int], rv_start: Int, rv_end: Int){
+        var start = rv_start
+        var end = rv_end
+        while(start < end){
+            swap(input_data: &input_data, index1: start, index2: end)
+            start = start + 1
+            end = end - 1
+        }
+    }
+    
+    func swap(input_data: inout [Int], index1: Int, index2: Int){
+        var buf: Int = 0
+        buf = input_data[index1]
+        input_data[index1] = input_data[index2]
+        input_data[index2] = buf
     }
     
     public class BarChartFormatter: NSObject, IAxisValueFormatter{
