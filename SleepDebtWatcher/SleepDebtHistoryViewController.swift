@@ -14,7 +14,8 @@ class SleepDebtHistoryViewController: UIViewController {
 
     
     @IBOutlet weak var sleepDebtValueLabel: UILabel!
-    var sleepDebtValue:Double = 0
+    //var sleepDebtValue:Double = 0
+    var weekDay = 0
     var sleepDebt:[Double] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
     let highLimitTime = 4.0
     let midLimitTime = 2.0
@@ -28,9 +29,10 @@ class SleepDebtHistoryViewController: UIViewController {
             userDefaults.set(0.0, forKey: "sleepDebt" + String(i))
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        sleepDebtValueLabel.text = String(sleepDebtValue)
+        sleepDebtValueLabel.text = String(sleepDebt[weekDay])
         let userDefaults = UserDefaults.standard
         for i in 0..<sleepDebt.count {
             sleepDebt[i] = userDefaults.double(forKey: "sleepDebt" + String(i))
@@ -47,6 +49,10 @@ class SleepDebtHistoryViewController: UIViewController {
     
     func setSleepDebt(weekday: Int, rv_sleepDebt: Double){
         sleepDebt[weekday] = rv_sleepDebt
+    }
+    
+    func setWeekDay(rv_weekday: Int){
+        weekDay = rv_weekday
     }
     
     //Merged

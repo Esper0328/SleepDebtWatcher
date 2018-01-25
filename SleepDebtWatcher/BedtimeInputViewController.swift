@@ -108,8 +108,8 @@ class BedtimeInputViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
         if (segue.identifier == "sleepDebtFromInput"){
             let viewController: SleepDebtHistoryViewController = (segue.destination as? SleepDebtHistoryViewController)!
-            viewController.sleepDebtValue = sleepDebt
-            let weekdayFromZero = weekdayOfCalcBedtime % 7
+            let weekdayFromZero = weekdayOfCalcBedtime % Calendar.current.weekdaySymbols.count
+            viewController.setWeekDay(rv_weekday: weekdayFromZero)
             viewController.setSleepDebt(weekday: weekdayFromZero , rv_sleepDebt: sleepDebt)//from 1-7(from Apple spec of Weekday) to 0-6(for array index)
             let userDefaults = UserDefaults.standard
             userDefaults.set(sleepDebt, forKey: "sleepDebt")
