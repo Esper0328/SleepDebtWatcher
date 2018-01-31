@@ -15,7 +15,7 @@ class SleepDebtHistoryViewController: UIViewController {
     
     @IBOutlet weak var sleepDebtValueLabel: UILabel!
     //var sleepDebtValue:Double = 0
-    var weekDay = 0
+    var weekDay :Int = 0
     var sleepDebt:[Double] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
     let highLimitTime = 4.0
     let midLimitTime = 2.0
@@ -37,7 +37,7 @@ class SleepDebtHistoryViewController: UIViewController {
         for i in 0..<sleepDebt.count {
             sleepDebt[i] = userDefaults.double(forKey: "sleepDebt" + String(i))
         }
-        
+        rotate(input_data: &sleepDebt, shift: weekDay)
         setChart(y: sleepDebt)
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -102,7 +102,7 @@ class SleepDebtHistoryViewController: UIViewController {
     }
     
     
-    func rotate(input_data: inout [Int], shift: Int ){
+    func rotate(input_data: inout [Double], shift: Int ){
         var corrected_shift = shift
         while(corrected_shift < 0){
             corrected_shift = shift + input_data.count
@@ -120,7 +120,7 @@ class SleepDebtHistoryViewController: UIViewController {
         }
     }
     
-    func reverse(input_data: inout [Int], rv_start: Int, rv_end: Int){
+    func reverse(input_data: inout [Double], rv_start: Int, rv_end: Int){
         var start = rv_start
         var end = rv_end
         while(start < end){
@@ -130,8 +130,8 @@ class SleepDebtHistoryViewController: UIViewController {
         }
     }
     
-    func swap(input_data: inout [Int], index1: Int, index2: Int){
-        var buf: Int = 0
+    func swap(input_data: inout [Double], index1: Int, index2: Int){
+        var buf: Double = 0.0
         buf = input_data[index1]
         input_data[index1] = input_data[index2]
         input_data[index2] = buf

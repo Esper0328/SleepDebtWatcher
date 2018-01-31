@@ -142,8 +142,8 @@ class SleepDebtWatcherTests: XCTestCase {
     
     func testRotate_2LeftShift_2LeftShiftFromInput(){
         let sleepDebtHistoryView = SleepDebtHistoryViewController()
-        var input_array = [10,20,30,40,50,60,70]
-        let output_array = [30,40,50,60,70,10,20]
+        var input_array = [10.0,20.0,30.0,40.0,50.0,60.0,70.0]
+        let output_array = [30.0,40.0,50.0,60.0,70.0,10.0,20.0]
         let shift = 2
         sleepDebtHistoryView.rotate(input_data: &input_array, shift: shift)
         XCTAssertEqual(input_array, output_array)
@@ -151,8 +151,8 @@ class SleepDebtWatcherTests: XCTestCase {
     
     func testRotate_minus2LeftShift_2LeftShiftFromInput(){
         let sleepDebtHistoryView = SleepDebtHistoryViewController()
-        var input_array = [10,20,30,40,50,60,70]
-        let output_array = [60,70,10,20,30,40,50]
+        var input_array = [10.0,20.0,30.0,40.0,50.0,60.0,70.0]
+        let output_array = [60.0,70.0,10.0,20.0,30.0,40.0,50.0]
         let shift = -2
         sleepDebtHistoryView.rotate(input_data: &input_array, shift: shift)
         XCTAssertEqual(input_array, output_array)
@@ -160,8 +160,8 @@ class SleepDebtWatcherTests: XCTestCase {
 
     func testRotate_0LeftShift_SameValue(){
         let sleepDebtHistoryView = SleepDebtHistoryViewController()
-        var input_array = [10,20,30,40,50,60,70]
-        let output_array = [10,20,30,40,50,60,70]
+        var input_array = [10.0,20.0,30.0,40.0,50.0,60.0,70.0]
+        let output_array = [10.0,20.0,30.0,40.0,50.0,60.0,70.0]
         let shift = 0
         sleepDebtHistoryView.rotate(input_data: &input_array, shift: shift)
         XCTAssertEqual(input_array, output_array)
@@ -169,8 +169,8 @@ class SleepDebtWatcherTests: XCTestCase {
     
     func testRotate_9LeftShift_2LeftShiftFromInput(){
         let sleepDebtHistoryView = SleepDebtHistoryViewController()
-        var input_array = [10,20,30,40,50,60,70]
-        let output_array = [30,40,50,60,70,10,20]
+        var input_array = [10.0,20.0,30.0,40.0,50.0,60.0,70.0]
+        let output_array = [30.0,40.0,50.0,60.0,70.0,10.0,20.0]
         let shift = 9
         sleepDebtHistoryView.rotate(input_data: &input_array, shift: shift)
         XCTAssertEqual(input_array, output_array)
@@ -178,8 +178,8 @@ class SleepDebtWatcherTests: XCTestCase {
     
     func testSwap_idx1idx2_swapped(){
         let sleepDebtHistoryView = SleepDebtHistoryViewController()
-        var input_array = [10,20,30,40,50,60,70]
-        let output_array = [30,20,10,40,50,60,70]
+        var input_array = [10.0,20.0,30.0,40.0,50.0,60.0,70.0]
+        let output_array = [30.0,20.0,10.0,40.0,50.0,60.0,70.0]
         let index1 = 0
         let index2 = 2
         sleepDebtHistoryView.swap(input_data: &input_array, index1: index1, index2: index2)
@@ -188,8 +188,8 @@ class SleepDebtWatcherTests: XCTestCase {
     
     func testReverse_idx1idx2(){
         let sleepDebtHistoryView = SleepDebtHistoryViewController()
-        var input_array = [10,20,30,40,50,60,70]
-        let output_array = [50,40,30,20,10,60,70]
+        var input_array = [10.0,20.0,30.0,40.0,50.0,60.0,70.0]
+        let output_array = [50.0,40.0,30.0,20.0,10.0,60.0,70.0]
         let start = 0
         let end = 4
         sleepDebtHistoryView.reverse(input_data: &input_array, rv_start: start, rv_end: end)
