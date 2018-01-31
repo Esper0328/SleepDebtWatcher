@@ -8,18 +8,11 @@
 
 import UIKit
 
-
-#if build_configuration
-#else
-//iPhone
-//@UIApplicationMain
-#endif
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-#if build_configuration
-//For fast Unit Test
+#if build_configuration //For fast Unit Test
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -30,8 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-#else
-//iPhone
+#else   //iPhone
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
