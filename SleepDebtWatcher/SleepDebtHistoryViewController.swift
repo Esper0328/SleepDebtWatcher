@@ -37,7 +37,8 @@ class SleepDebtHistoryViewController: UIViewController {
         for i in 0..<sleepDebt.count {
             sleepDebt[i] = userDefaults.double(forKey: "sleepDebt" + String(i))
         }
-        rotate(input_data: &sleepDebt, shift: weekDay)
+        let Monday = 1
+        rotate(input_data: &sleepDebt, shift: Monday)//Chart starts from Monday
         setChart(y: sleepDebt)
         // Do any additional setup after loading the view, typically from a nib.
     }
