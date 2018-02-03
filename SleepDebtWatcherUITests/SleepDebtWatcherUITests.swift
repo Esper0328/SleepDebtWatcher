@@ -124,7 +124,6 @@ class SleepDebtWatcherUITests: XCTestCase {
     func goAndBackEachViewFromTopViewTest() {
         topViewControllerComponentsExistTest()
         tapAndWait(button: bedtimePlanButton, wait_time: no_wait)               //TopView->BedtimePlanView
-        //bedtimePlanViewControllerComponentsExistTest()
         XCTAssertEqual(bedtimeInputViewLabel.label, "起床・就寝予定入力モード")
         
         tapAndWait(button: backToTopFromBedtimeInputButton, wait_time: no_wait) //BedtimePlanView->TopView
@@ -143,15 +142,6 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(bedtimeInputButton.exists)
         XCTAssertTrue(sleepDebtDisplayButton.exists)
         XCTAssertTrue(bedtimePlanButton.exists)
-    }
-    
-    func bedtimePlanViewControllerComponentsExistTest(){
-        XCTAssertTrue(bedtimePlanDatePicker.exists)
-        XCTAssertTrue(bedtimePlanViewLabel.exists)
-        XCTAssertTrue(timePlanSlotLabel.exists)
-        XCTAssertTrue(timePlanCheckLabel.exists)
-        XCTAssertTrue(backToTopFromBedtimePlanButton.exists)
-        XCTAssertTrue(bedtimePlanSetButton.exists)
     }
     
     func bedtimeInputViewExistTest(){
