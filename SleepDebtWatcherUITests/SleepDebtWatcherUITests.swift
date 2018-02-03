@@ -124,9 +124,10 @@ class SleepDebtWatcherUITests: XCTestCase {
     func goAndBackEachViewFromTopViewTest() {
         topViewControllerComponentsExistTest()
         tapAndWait(button: bedtimePlanButton, wait_time: no_wait)               //TopView->BedtimePlanView
-        bedtimePlanViewControllerComponentsExistTest()
+        //bedtimePlanViewControllerComponentsExistTest()
+        XCTAssertEqual(bedtimeInputViewLabel.label, "起床・就寝予定入力モード")
         
-        tapAndWait(button: backToTopFromBedtimePlanButton, wait_time: no_wait)  //BedtimePlanView->TopView
+        tapAndWait(button: backToTopFromBedtimeInputButton, wait_time: no_wait) //BedtimePlanView->TopView
         tapAndWait(button: bedtimeInputButton, wait_time: no_wait)              //TopView->BedtimeInputView
         bedtimeInputViewExistTest()
         
@@ -184,6 +185,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         
         //Set Wake Time
         setbedtimeDatePickerAndWait(date: wake_date, hour: wake_hour, minute: wake_minute, AMorPM: wake_AMorPM, wait_time: no_wait)
+    
         tapAndWait(button: bedtimeSetButton, wait_time: no_wait)
         XCTAssertEqual(sleepDebtValueLabel.label, sleepDebtValue)
         tapAndWait(button: backToTopFromSleepDebtButton, wait_time: no_wait)

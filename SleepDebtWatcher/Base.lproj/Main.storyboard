@@ -35,7 +35,8 @@
                                 <accessibility key="accessibilityConfiguration" identifier="bedtimePlanButton"/>
                                 <state key="normal" title="起床・就寝予定設定"/>
                                 <connections>
-                                    <segue destination="aRw-zQ-KoZ" kind="show" identifier="planBedtime" id="pm1-Sh-f2j"/>
+                                    <action selector="planBedtimeEvent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KRs-Uz-n1B"/>
+                                    <segue destination="3LV-kQ-Gjc" kind="show" identifier="planBedtime" id="EVY-u9-n2q"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJN-mt-GC4">
@@ -126,6 +127,7 @@
                     </view>
                     <connections>
                         <outlet property="datepicker" destination="sGO-vZ-9Ws" id="UPo-oc-rVi"/>
+                        <outlet property="inputMode" destination="GUD-nj-aJl" id="HVN-vq-7Fn"/>
                         <outlet property="timeSlot" destination="IN7-BG-CjJ" id="eEa-mU-m5N"/>
                         <segue destination="ZTA-xh-4sx" kind="show" identifier="sleepDebtFromInput" id="zho-DD-rAR"/>
                     </connections>
@@ -133,72 +135,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nw1-IP-VTV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="789.60000000000002" y="32.833583208395808"/>
-        </scene>
-        <!--Bedtime Plan View Controller-->
-        <scene sceneID="Ic6-cd-biC">
-            <objects>
-                <viewController id="aRw-zQ-KoZ" customClass="BedtimePlanViewController" customModule="SleepDebtWatcher" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ig5-9Y-gGH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="起床/就寝時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chp-uX-9Pn">
-                                <rect key="frame" x="31" y="353" width="110" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="timePlanSlotLabel"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="入力状態" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eG-Vt-pWE">
-                                <rect key="frame" x="225" y="352" width="70" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="timePlanCheckLabel"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="D39-pv-bLB">
-                                <rect key="frame" x="0.0" y="423" width="375" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <date key="date" timeIntervalSinceReferenceDate="538065986.55267203">
-                                    <!--2018-01-19 14:46:26 +0000-->
-                                </date>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="AccessibilityIdentifier" value="bedtimePlanDatePicker"/>
-                                </userDefinedRuntimeAttributes>
-                            </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QSJ-53-Qca">
-                                <rect key="frame" x="215" y="608" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="bedtimePlanSetButton"/>
-                                <state key="normal" title="Set"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kpp-f9-efL">
-                                <rect key="frame" x="125" y="608" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="backToTopFromBedtimePlanButton"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="backToTopFromPlan" id="Jzt-cL-ITa"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="起床・就寝予定設定" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79C-M4-0Pu">
-                                <rect key="frame" x="109" y="39" width="156" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="bedtimePlanViewLabel"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="kHt-dX-MF0"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="atG-z0-iRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="15" y="788"/>
         </scene>
         <!--Sleep Debt History View Controller-->
         <scene sceneID="RHG-Of-OCK">
@@ -298,7 +234,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zho-DD-rAR"/>
-        <segue reference="P5h-cD-9Ds"/>
+        <segue reference="nV3-fq-afU"/>
+        <segue reference="EVY-u9-n2q"/>
+        <segue reference="USH-HL-x3k"/>
     </inferredMetricsTieBreakers>
 </document>

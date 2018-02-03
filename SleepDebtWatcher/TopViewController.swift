@@ -28,5 +28,8 @@ class TopViewController: UIViewController {
         performSegue(withIdentifier: "displaySleepDebtFromTop", sender: nil)
         
     }
+    @IBAction func planBedtimeEvent(_ sender: Any) {
+        performSegue(withIdentifier: "planBedtime", sender: nil)
+    }
 }
 

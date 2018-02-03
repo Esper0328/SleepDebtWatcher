@@ -14,13 +14,14 @@ class BedtimeInputViewController: UIViewController {
 
     @IBOutlet weak var timeSlot: UILabel!
     @IBOutlet weak var datepicker: UIDatePicker!
+    @IBOutlet weak var inputMode: UILabel!
     
     var changeddate : DateComponents!
     @IBAction func changeDate(_ sender: Any) {
         changeddate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: (sender as AnyObject).date)
     }
     
-    enum SleepInputMode{
+    enum SleepInputType{
         case TimeOfSleep
         case WakeTime
     }
@@ -29,11 +30,12 @@ class BedtimeInputViewController: UIViewController {
     var wakeTime: DateComponents!
     var bedtime: Double! = 0.0       //unit:[H]
     var sleepDebt: Double! = 0.0     //unit:[H]
-    var sleepInputState: SleepInputMode = .TimeOfSleep
+    var sleepInputType: SleepInputType = .TimeOfSleep
     var weekdayOfCalcBedtime : Int! = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        inputMode.text = "起床・就寝予定入力モード"
         timeSlot.text = "就寝時間"
         let userDefaults = UserDefaults.standard
         sleepDebt = userDefaults.double(forKey: "sleepDebt")
@@ -54,10 +56,10 @@ class BedtimeInputViewController: UIViewController {
     }
     
     @IBAction func setBedtimeEvent(_ sender: Any) {
-        switch sleepInputState {
+        switch sleepInputType {
         case .TimeOfSleep:
             timeOfSleep = changeddate
-            sleepInputState = .WakeTime
+            sleepInputType = .WakeTime
             timeSlot.text = "起床時間"
         case .WakeTime:
             wakeTime = changeddate
