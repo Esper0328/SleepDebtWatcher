@@ -127,8 +127,8 @@
                     </view>
                     <connections>
                         <outlet property="datepicker" destination="sGO-vZ-9Ws" id="UPo-oc-rVi"/>
-                        <outlet property="inputMode" destination="GUD-nj-aJl" id="HVN-vq-7Fn"/>
-                        <outlet property="timeSlot" destination="IN7-BG-CjJ" id="eEa-mU-m5N"/>
+                        <outlet property="inputModeLabel" destination="GUD-nj-aJl" id="Ikk-xu-iXL"/>
+                        <outlet property="timeSlotLabel" destination="IN7-BG-CjJ" id="KHy-6W-h4r"/>
                         <segue destination="ZTA-xh-4sx" kind="show" identifier="sleepDebtFromInput" id="zho-DD-rAR"/>
                     </connections>
                 </viewController>
@@ -234,7 +234,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nV3-fq-afU"/>
+        <segue reference="zho-DD-rAR"/>
         <segue reference="EVY-u9-n2q"/>
         <segue reference="USH-HL-x3k"/>
     </inferredMetricsTieBreakers>
