@@ -26,16 +26,28 @@ class BedtimeInputViewController: UIViewController {
         case WakeTime
     }
     
+    enum SleepInputMode{
+        case Plan
+        case Result
+    }
+    
     var timeOfSleep: DateComponents!
     var wakeTime: DateComponents!
     var bedtime: Double! = 0.0       //unit:[H]
     var sleepDebt: Double! = 0.0     //unit:[H]
     var sleepInputType: SleepInputType = .TimeOfSleep
+    var sleepInputMode: SleepInputMode = .Plan
+    
     var weekdayOfCalcBedtime : Int! = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        inputMode.text = "起床・就寝予定入力モード"
+        switch sleepInputMode {
+        case .Plan:
+            inputMode.text = "起床・就寝予定入力モード"
+        case .Result:
+            inputMode.text = "起床・就寝結果入力モード"
+        }
         timeSlot.text = "就寝時間"
         let userDefaults = UserDefaults.standard
         sleepDebt = userDefaults.double(forKey: "sleepDebt")
@@ -105,6 +117,10 @@ class BedtimeInputViewController: UIViewController {
         else {
             //Do Nothing
         }
+    }
+    
+    func setSleepInputMode(mode:SleepInputMode){
+        sleepInputMode = mode
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {

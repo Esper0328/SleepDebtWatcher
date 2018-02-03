@@ -31,5 +31,17 @@ class TopViewController: UIViewController {
     @IBAction func planBedtimeEvent(_ sender: Any) {
         performSegue(withIdentifier: "planBedtime", sender: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
+        
+        if (segue.identifier == "planBedtime"){
+            let viewController: BedtimeInputViewController = (segue.destination as? BedtimeInputViewController)!
+            viewController.setSleepInputMode(mode: .Plan)
+        }
+        else if(segue.identifier == "inputBedtime"){
+            let viewController: BedtimeInputViewController = (segue.destination as? BedtimeInputViewController)!
+            viewController.setSleepInputMode(mode: .Result)
+        }
+    }
 }
 
