@@ -30,8 +30,14 @@ class BedtimeInputViewController: UIViewController {
         case Result
     }
     
+    struct ModeParameter{
+        var label: String = ""
+        var datePickerMode: UIDatePickerMode
+    }
     
-    let inputModeLabelContent : [SleepInputMode : String] = [.Plan: "起床・就寝予定入力モード", .Result: "起床・就寝結果入力モード"]
+    let planModeParameter = ModeParameter(label: "起床・就寝予定入力モード", datePickerMode: UIDatePickerMode.time)
+    let resultModeParameter = ModeParameter(label: "起床・就寝結果入力モード", datePickerMode: UIDatePickerMode.dateAndTime)
+    lazy var inputModeContent : [SleepInputMode : ModeParameter] = [.Plan: planModeParameter, .Result: self.resultModeParameter]
     
     var timeOfSleep: DateComponents!
     var wakeTime: DateComponents!
@@ -44,7 +50,8 @@ class BedtimeInputViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        inputModeLabel.text = inputModeLabelContent[sleepInputMode]
+        inputModeLabel.text = inputModeContent[sleepInputMode]?.label
+        datepicker.datePickerMode = (inputModeContent[sleepInputMode]?.datePickerMode)!
         timeSlotLabel.text = "就寝時間"
         let userDefaults = UserDefaults.standard
         sleepDebt = userDefaults.double(forKey: "sleepDebt")
@@ -69,9 +76,13 @@ class BedtimeInputViewController: UIViewController {
         case .Plan:
             switch sleepInputType {
             case .TimeOfSleep:
+                timeOfSleep = changeddate
                 timeSlotLabel.text = "起床時間"
+                //setNotificationForBedtime
             case .WakeTime:
+                wakeTime = changeddate
                 print("Dummy")
+                //setNotificationForWaketime
             }
         case .Result:
             switch sleepInputType {

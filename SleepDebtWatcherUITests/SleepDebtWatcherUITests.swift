@@ -193,9 +193,9 @@ class SleepDebtWatcherUITests: XCTestCase {
     }
     
     func setbedtimePickerAndWait(hour : String, minute : String, AMorPM : String, wait_time : Double){
-        bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: hour)
-        bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: minute)
-        bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: AMorPM)
+        bedtimeDatePicker.pickerWheels.element(boundBy: 0).adjust(toPickerWheelValue: hour)
+        bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: minute)
+        bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: AMorPM)
         Thread.sleep(forTimeInterval: wait_time)
     }
     
