@@ -54,14 +54,6 @@ class SleepDebtWatcherUITests: XCTestCase {
         bedtimePlanButton = app.buttons["bedtimePlanButton"]
         bedtimeInputButton = app.buttons["bedtimeInputButton"]
         sleepDebtDisplayButton = app.buttons["sleepDebtDisplayButton"]
-        
-        //BedtimePlanViewController
-        bedtimePlanDatePicker = app.datePickers["bedtimePlanDatePicker"]
-        bedtimePlanViewLabel = app.staticTexts["bedtimePlanViewLabel"]
-        timePlanSlotLabel = app.staticTexts["timePlanSlotLabel"]
-        timePlanCheckLabel = app.staticTexts["timePlanCheckLabel"]
-        backToTopFromBedtimePlanButton = app.buttons["backToTopFromBedtimePlanButton"]
-        bedtimePlanSetButton = app.buttons["bedtimePlanSetButton"]
 
         //BedtimeInputViewController
         bedtimeDatePicker = app.datePickers["bedtimeDatePicker"]
