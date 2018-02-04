@@ -30,6 +30,9 @@ class BedtimeInputViewController: UIViewController {
         case Result
     }
     
+    
+    let inputModeLabelContent : [SleepInputMode : String] = [.Plan: "起床・就寝予定入力モード", .Result: "起床・就寝結果入力モード"]
+    
     var timeOfSleep: DateComponents!
     var wakeTime: DateComponents!
     var bedtime: Double! = 0.0       //unit:[H]
@@ -41,12 +44,7 @@ class BedtimeInputViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        switch sleepInputMode {
-        case .Plan:
-            inputModeLabel.text = "起床・就寝予定入力モード"
-        case .Result:
-            inputModeLabel.text = "起床・就寝結果入力モード"
-        }
+        inputModeLabel.text = inputModeLabelContent[sleepInputMode]
         timeSlotLabel.text = "就寝時間"
         let userDefaults = UserDefaults.standard
         sleepDebt = userDefaults.double(forKey: "sleepDebt")
@@ -67,15 +65,25 @@ class BedtimeInputViewController: UIViewController {
     }
     
     @IBAction func setBedtimeEvent(_ sender: Any) {
-        switch sleepInputType {
-        case .TimeOfSleep:
-            timeOfSleep = changeddate
-            sleepInputType = .WakeTime
-            timeSlotLabel.text = "起床時間"
-        case .WakeTime:
-            wakeTime = changeddate
-            calcSleepDebt()
-            performSegue(withIdentifier: "sleepDebtFromInput", sender: nil)
+        switch sleepInputMode {
+        case .Plan:
+            switch sleepInputType {
+            case .TimeOfSleep:
+                timeSlotLabel.text = "起床時間"
+            case .WakeTime:
+                print("Dummy")
+            }
+        case .Result:
+            switch sleepInputType {
+            case .TimeOfSleep:
+                timeOfSleep = changeddate
+                sleepInputType = .WakeTime
+                timeSlotLabel.text = "起床時間"
+            case .WakeTime:
+                wakeTime = changeddate
+                calcSleepDebt()
+                performSegue(withIdentifier: "sleepDebtFromInput", sender: nil)
+            }
         }
     }
     func isValidBedtime() -> Bool{

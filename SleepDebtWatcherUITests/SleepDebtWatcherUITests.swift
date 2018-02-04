@@ -105,6 +105,8 @@ class SleepDebtWatcherUITests: XCTestCase {
     func testAllUI(){
         initialize()//reset UserDefaults
         goAndBackEachViewFromTopViewTest()
+        bedtimePlanTest(sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM")
+        
         bedtimeInputTest(sleep_date : "Jan 17", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
                          wake_date : "Jan 18", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "1.0")
         bedtimeInputTest(sleep_date : "Jan 18", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
@@ -165,6 +167,22 @@ class SleepDebtWatcherUITests: XCTestCase {
         XCTAssertTrue(resetSleepDebtButton.exists)
     }
     
+    func bedtimePlanTest(sleep_hour: String, sleep_minute: String, sleep_AMorPM: String, wake_hour: String, wake_minute: String, wake_AMorPM: String){
+        tapAndWait(button: bedtimePlanButton, wait_time: no_wait)
+        XCTAssertEqual(timeSlotLabel.label, "就寝時間")
+        //Set Sleep Of Time
+        setbedtimePickerAndWait(hour: sleep_hour, minute: sleep_minute, AMorPM: sleep_AMorPM, wait_time: no_wait)
+        tapAndWait(button: bedtimeSetButton, wait_time: no_wait)
+        XCTAssertEqual(timeSlotLabel.label, "起床時間")
+        
+        //Set Wake Time
+        setbedtimePickerAndWait(hour: wake_hour, minute: wake_minute, AMorPM: wake_AMorPM, wait_time: no_wait)
+        
+        tapAndWait(button: bedtimeSetButton, wait_time: no_wait)
+        //XCTAssertEqual(sleepDebtValueLabel.label, sleepDebtValue)
+        tapAndWait(button: backToTopFromBedtimeInputButton, wait_time: no_wait)
+    }
+    
     func bedtimeInputTest(sleep_date: String, sleep_hour: String, sleep_minute: String, sleep_AMorPM: String,
                           wake_date: String, wake_hour: String, wake_minute: String, wake_AMorPM: String, sleepDebtValue: String){
         tapAndWait(button: bedtimeInputButton, wait_time: no_wait)
@@ -180,6 +198,13 @@ class SleepDebtWatcherUITests: XCTestCase {
         tapAndWait(button: bedtimeSetButton, wait_time: no_wait)
         XCTAssertEqual(sleepDebtValueLabel.label, sleepDebtValue)
         tapAndWait(button: backToTopFromSleepDebtButton, wait_time: no_wait)
+    }
+    
+    func setbedtimePickerAndWait(hour : String, minute : String, AMorPM : String, wait_time : Double){
+        bedtimeDatePicker.pickerWheels.element(boundBy: 1).adjust(toPickerWheelValue: hour)
+        bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: minute)
+        bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: AMorPM)
+        Thread.sleep(forTimeInterval: wait_time)
     }
     
     func setbedtimeDatePickerAndWait(date : String, hour : String, minute : String, AMorPM : String, wait_time : Double){
