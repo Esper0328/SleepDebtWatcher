@@ -56,7 +56,6 @@ class SleepDebtHistoryViewController: UIViewController {
         weekDay = rv_weekday
     }
     
-    //Merged
     func setChart(y: [Double]) {
         // y軸
         var dataEntries = [BarChartDataEntry]()
@@ -65,7 +64,6 @@ class SleepDebtHistoryViewController: UIViewController {
             let dataEntry = BarChartDataEntry(x: Double(i), y: val)
             dataEntries.append(dataEntry)
         }
-        
         let chartDataSet = BarChartDataSet(values: dataEntries, label: "負債")
         let xaxis = XAxis()
         xaxis.valueFormatter = BarChartFormatter()
@@ -82,13 +80,9 @@ class SleepDebtHistoryViewController: UIViewController {
         
         let midLimitLine = ChartLimitLine(limit: midLimitTime, label: "注意水準")
         barDebtChartView.leftAxis.addLimitLine(midLimitLine)
-        
         let highLimitLine = ChartLimitLine(limit: highLimitTime, label: "危険水準")
         barDebtChartView.leftAxis.addLimitLine(highLimitLine)
         
-        //chartDataSet.colors = [UIColor(red: 230/255, green: 126/255, blue: 34/255, alpha: 1)]
-        
-        //力技で7種類の色を指定している = グラフ横軸の要素数がmax 7個。
         chartDataSet.colors = [setColor(value: y[0]),setColor(value: y[1]),setColor(value: y[2]),setColor(value: y[3]),setColor(value: y[4]),setColor(value: y[5]),setColor(value: y[6])]
         
         barDebtChartView.backgroundColor = UIColor.white

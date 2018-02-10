@@ -95,8 +95,6 @@ class BedtimeInputViewController: UIViewController {
                 timeSlotLabel.text = "起床時間"
             case .WakeTime:
                 wakeTime = changeddate
-                content.title = "起床時間"
-                content.body = "Good Morining"
                 setNotification(dateComponents:dateComponents, content: content)
             }
         case .Result:
@@ -143,9 +141,6 @@ class BedtimeInputViewController: UIViewController {
             if(sleepDebt < 0){
                 sleepDebt = 0
             }
-        }
-        else {
-            //Do Nothing
         }
     }
     
