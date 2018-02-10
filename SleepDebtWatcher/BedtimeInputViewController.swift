@@ -81,7 +81,6 @@ class BedtimeInputViewController: UIViewController {
                 //setNotificationForBedtime
             case .WakeTime:
                 wakeTime = changeddate
-                print("Dummy")
                 //setNotificationForWaketime
             }
         case .Result:

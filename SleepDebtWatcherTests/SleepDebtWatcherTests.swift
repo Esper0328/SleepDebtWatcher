@@ -196,6 +196,8 @@ class SleepDebtWatcherTests: XCTestCase {
         XCTAssertEqual(input_array, output_array)
     }
     
+    //func setNotificationForBedtime
+    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
