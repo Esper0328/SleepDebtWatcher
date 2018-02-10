@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import UserNotifications
 
 class BedtimeInputViewController: UIViewController {
     
@@ -45,7 +46,6 @@ class BedtimeInputViewController: UIViewController {
     var sleepDebt: Double! = 0.0     //unit:[H]
     var sleepInputType: SleepInputType = .TimeOfSleep
     var sleepInputMode: SleepInputMode = .Plan
-    
     var weekdayOfCalcBedtime : Int! = 0
     
     override func viewDidLoad() {
@@ -77,11 +77,12 @@ class BedtimeInputViewController: UIViewController {
             switch sleepInputType {
             case .TimeOfSleep:
                 timeOfSleep = changeddate
+                setNotification(date:changeddate)
+                sleepInputType = .WakeTime
                 timeSlotLabel.text = "起床時間"
-                //setNotificationForBedtime
             case .WakeTime:
                 wakeTime = changeddate
-                //setNotificationForWaketime
+                setNotification(date:changeddate)
             }
         case .Result:
             switch sleepInputType {
@@ -135,6 +136,25 @@ class BedtimeInputViewController: UIViewController {
     
     func setSleepInputMode(mode:SleepInputMode){
         sleepInputMode = mode
+    }
+    
+    func setNotification(date:DateComponents!){
+        var dateComponents = DateComponents(hour: date.hour, minute: date.minute)
+        let content = UNMutableNotificationContent()
+        switch sleepInputType {
+        case .TimeOfSleep:
+            dateComponents.hour = dateComponents.hour! - 2
+            content.title = "就寝予定２時間前"
+            content.body = "そろそろ寝る時間です"
+        case .WakeTime:
+            content.title = "起床時間"
+            content.body = "Good Morining"
+        }
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        content.sound = UNNotificationSound.default()
+        let request = UNNotificationRequest(identifier: "normal", content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+        center.add(request, withCompletionHandler: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any!) {

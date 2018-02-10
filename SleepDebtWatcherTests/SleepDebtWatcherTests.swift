@@ -7,10 +7,12 @@
 //
 
 import XCTest
+import UserNotifications
 @testable import SleepDebtWatcher
 
 class SleepDebtWatcherTests: XCTestCase {
     let bedtimeInputView = BedtimeInputViewController()
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -186,7 +188,7 @@ class SleepDebtWatcherTests: XCTestCase {
         XCTAssertEqual(input_array, output_array)
     }
     
-    func testReverse_idx1idx2(){
+    func testReverse_idx1idx2_returnReversed(){
         let sleepDebtHistoryView = SleepDebtHistoryViewController()
         var input_array = [10.0,20.0,30.0,40.0,50.0,60.0,70.0]
         let output_array = [50.0,40.0,30.0,20.0,10.0,60.0,70.0]
@@ -195,8 +197,7 @@ class SleepDebtWatcherTests: XCTestCase {
         sleepDebtHistoryView.reverse(input_data: &input_array, rv_start: start, rv_end: end)
         XCTAssertEqual(input_array, output_array)
     }
-    
-    //func setNotificationForBedtime
+
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
