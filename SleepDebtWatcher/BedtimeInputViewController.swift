@@ -21,14 +21,14 @@ class BedtimeInputViewController: UIViewController {
         changeddate = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: (sender as AnyObject).date)
     }
     
-    enum SleepInputType{
-        case TimeOfSleep
-        case WakeTime
-    }
-    
     enum SleepInputMode{
         case Plan
         case Result
+    }
+    
+    enum SleepInputType{
+        case TimeOfSleep
+        case WakeTime
     }
     
     struct ModeParameter{
@@ -36,9 +36,17 @@ class BedtimeInputViewController: UIViewController {
         var datePickerMode: UIDatePickerMode
     }
     
+    struct NotificationContents{
+        var title: String = ""
+        var body: String = ""
+    }
     let planModeParameter = ModeParameter(label: "起床・就寝予定入力モード", datePickerMode: UIDatePickerMode.time)
     let resultModeParameter = ModeParameter(label: "起床・就寝結果入力モード", datePickerMode: UIDatePickerMode.dateAndTime)
-    lazy var inputModeContent : [SleepInputMode : ModeParameter] = [.Plan: planModeParameter, .Result: self.resultModeParameter]
+    lazy var inputModeContents : [SleepInputMode : ModeParameter] = [.Plan: planModeParameter, .Result: resultModeParameter]
+    
+    let timeOfSleepNotificationContents = NotificationContents(title: "就寝予定２時間前", body:"そろそろ寝る時間です")
+    let wakeTimeNotificationContents = NotificationContents(title: "起床時間", body:"Good Morining")
+    lazy var notificationContents : [SleepInputType : NotificationContents] = [.TimeOfSleep: timeOfSleepNotificationContents, .WakeTime: wakeTimeNotificationContents]
     
     var timeOfSleep: DateComponents!
     var wakeTime: DateComponents!
@@ -50,8 +58,8 @@ class BedtimeInputViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        inputModeLabel.text = inputModeContent[sleepInputMode]?.label
-        datepicker.datePickerMode = (inputModeContent[sleepInputMode]?.datePickerMode)!
+        inputModeLabel.text = inputModeContents[sleepInputMode]?.label
+        datepicker.datePickerMode = (inputModeContents[sleepInputMode]?.datePickerMode)!
         timeSlotLabel.text = "就寝時間"
         let userDefaults = UserDefaults.standard
         sleepDebt = userDefaults.double(forKey: "sleepDebt")
@@ -74,15 +82,22 @@ class BedtimeInputViewController: UIViewController {
     @IBAction func setBedtimeEvent(_ sender: Any) {
         switch sleepInputMode {
         case .Plan:
+            let content = UNMutableNotificationContent()
+            content.title = (notificationContents[sleepInputType]?.title)!
+            content.body = (notificationContents[sleepInputType]?.body)!
+            var dateComponents = DateComponents(hour: changeddate.hour, minute: changeddate.minute)
             switch sleepInputType {
             case .TimeOfSleep:
                 timeOfSleep = changeddate
-                setNotification(date:changeddate)
+                dateComponents.hour = dateComponents.hour! - 2
+                setNotification(dateComponents:dateComponents, content: content)
                 sleepInputType = .WakeTime
                 timeSlotLabel.text = "起床時間"
             case .WakeTime:
                 wakeTime = changeddate
-                setNotification(date:changeddate)
+                content.title = "起床時間"
+                content.body = "Good Morining"
+                setNotification(dateComponents:dateComponents, content: content)
             }
         case .Result:
             switch sleepInputType {
@@ -138,18 +153,7 @@ class BedtimeInputViewController: UIViewController {
         sleepInputMode = mode
     }
     
-    func setNotification(date:DateComponents!){
-        var dateComponents = DateComponents(hour: date.hour, minute: date.minute)
-        let content = UNMutableNotificationContent()
-        switch sleepInputType {
-        case .TimeOfSleep:
-            dateComponents.hour = dateComponents.hour! - 2
-            content.title = "就寝予定２時間前"
-            content.body = "そろそろ寝る時間です"
-        case .WakeTime:
-            content.title = "起床時間"
-            content.body = "Good Morining"
-        }
+    func setNotification(dateComponents:DateComponents!, content:UNMutableNotificationContent){
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
         content.sound = UNNotificationSound.default()
         let request = UNNotificationRequest(identifier: "normal", content: content, trigger: trigger)
