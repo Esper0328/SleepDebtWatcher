@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3500A51520136651009EC173 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3500A51420136651009EC173 /* main.swift */; };
-		3500A51A2014B5AE009EC173 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A5192014B5AE009EC173 /* Charts.framework */; };
 		351A07F52000550000636672 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A07F42000550000636672 /* AppDelegate.swift */; };
 		351A07F72000550000636672 /* TopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A07F62000550000636672 /* TopViewController.swift */; };
 		351A07FA2000550000636672 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 351A07F82000550000636672 /* Main.storyboard */; };
@@ -19,6 +17,7 @@
 		351A08252001A1EA00636672 /* TesttingAppDeligate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A08242001A1EA00636672 /* TesttingAppDeligate.swift */; };
 		351A082E2001B47200636672 /* BedtimeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A082D2001B47200636672 /* BedtimeInputViewController.swift */; };
 		351A08302001EC9600636672 /* SleepDebtHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A082F2001EC9600636672 /* SleepDebtHistoryViewController.swift */; };
+		359721182035B0DD00F5C2C8 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A5192014B5AE009EC173 /* Charts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3500A51420136651009EC173 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3500A5172014B58D009EC173 /* Carthage */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Carthage; sourceTree = "<group>"; };
 		3500A5192014B5AE009EC173 /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		351A07F12000550000636672 /* SleepDebtWatcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepDebtWatcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3500A51A2014B5AE009EC173 /* Charts.framework in Frameworks */,
+				359721182035B0DD00F5C2C8 /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +117,6 @@
 		351A07F32000550000636672 /* SleepDebtWatcher */ = {
 			isa = PBXGroup;
 			children = (
-				3500A51420136651009EC173 /* main.swift */,
 				351A07F42000550000636672 /* AppDelegate.swift */,
 				351A07F62000550000636672 /* TopViewController.swift */,
 				351A07F82000550000636672 /* Main.storyboard */,
@@ -284,7 +281,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		3500A51B2014B5D5009EC173 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -305,7 +302,6 @@
 			files = (
 				351A08302001EC9600636672 /* SleepDebtHistoryViewController.swift in Sources */,
 				351A07F72000550000636672 /* TopViewController.swift in Sources */,
-				3500A51520136651009EC173 /* main.swift in Sources */,
 				351A07F52000550000636672 /* AppDelegate.swift in Sources */,
 				351A082E2001B47200636672 /* BedtimeInputViewController.swift in Sources */,
 			);
@@ -465,6 +461,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				"OTHER_SWIFT_FLAGS[arch=*]" = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
@@ -474,7 +471,9 @@
 		351A081A2000550000636672 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J672TXVNA;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -485,6 +484,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = esper.SleepDebtWatcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -493,7 +493,9 @@
 		351A081B2000550000636672 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7J672TXVNA;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -504,6 +506,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = esper.SleepDebtWatcher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

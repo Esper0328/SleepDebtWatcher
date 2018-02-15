@@ -96,6 +96,7 @@ class BedtimeInputViewController: UIViewController {
             case .WakeTime:
                 wakeTime = changeddate
                 setNotification(dateComponents:dateComponents, content: content)
+                performSegue(withIdentifier: "backToTopViewFromInput", sender: nil)
             }
         case .Result:
             switch sleepInputType {
@@ -110,6 +111,11 @@ class BedtimeInputViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func backToTopViewEvent(_ sender: Any) {
+        performSegue(withIdentifier: "backToTopViewFromInput", sender: nil)
+    }
+    
     func isValidBedtime() -> Bool{
         let calendar = Calendar.current
         let dateFrom = calendar.date(from: timeOfSleep)!
