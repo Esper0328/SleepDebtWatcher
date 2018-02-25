@@ -169,10 +169,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         
         //Set Wake Time
         setbedtimePickerAndWait(hour: wake_hour, minute: wake_minute, AMorPM: wake_AMorPM, wait_time: no_wait)
-        
         tapAndWait(button: bedtimeSetButton, wait_time: no_wait)
-        //XCTAssertEqual(sleepDebtValueLabel.label, sleepDebtValue)
-
     }
     
     func bedtimeInputTest(sleep_date: String, sleep_hour: String, sleep_minute: String, sleep_AMorPM: String,
