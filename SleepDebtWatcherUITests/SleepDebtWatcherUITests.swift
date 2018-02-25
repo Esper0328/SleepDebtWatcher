@@ -113,6 +113,7 @@ class SleepDebtWatcherUITests: XCTestCase {
                          wake_date : "Jan 23", wake_hour : "6", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "0.0")
         bedtimeInputTest(sleep_date : "Jan 23", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
                          wake_date : "Jan 24", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "1.0")
+        cancelBedtimeInputTest()
     }
     
     func goAndBackEachViewFromTopViewTest() {
@@ -202,6 +203,17 @@ class SleepDebtWatcherUITests: XCTestCase {
         bedtimeDatePicker.pickerWheels.element(boundBy: 2).adjust(toPickerWheelValue: minute)
         bedtimeDatePicker.pickerWheels.element(boundBy: 3).adjust(toPickerWheelValue: AMorPM)
         Thread.sleep(forTimeInterval: wait_time)
+    }
+    
+    func cancelBedtimeInputTest(){
+        tapAndWait(button: bedtimeInputButton, wait_time: no_wait)
+        XCTAssertEqual(timeSlotLabel.label, "就寝時間")
+        //Set Sleep Of Time
+        setbedtimeDatePickerAndWait(date: "Jan 17", hour: "9", minute: "55", AMorPM: "PM", wait_time: no_wait)
+        tapAndWait(button: bedtimeSetButton, wait_time: no_wait)
+        XCTAssertEqual(timeSlotLabel.label, "起床時間")
+        tapAndWait(button: bedtimeSetButton, wait_time: no_wait)
+        
     }
     
     func tapAndWait(button: XCUIElement, wait_time: Double){
