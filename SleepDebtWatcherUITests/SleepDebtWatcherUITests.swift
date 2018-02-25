@@ -103,9 +103,9 @@ class SleepDebtWatcherUITests: XCTestCase {
                          wake_date : "Jan 18", wake_hour : "2", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "3.0")
         bedtimeInputTest(sleep_date : "Jan 18", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
                          wake_date : "Jan 19", wake_hour : "1", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "7.0")
-/*        bedtimeInputTest(sleep_date : "Jan 19", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
-                         wake_date : "Jan 20", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "3.0")
-        bedtimeInputTest(sleep_date : "Jan 20", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
+        bedtimeInputTest(sleep_date : "Jan 19", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
+                         wake_date : "Jan 20", wake_hour : "5", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "7.0")
+ /*       bedtimeInputTest(sleep_date : "Jan 20", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
                          wake_date : "Jan 21", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "4.0")
         bedtimeInputTest(sleep_date : "Jan 21", sleep_hour : "9", sleep_minute : "55", sleep_AMorPM : "PM",
                          wake_date : "Jan 22", wake_hour : "4", wake_minute : "55", wake_AMorPM : "AM", sleepDebtValue: "5.0")
