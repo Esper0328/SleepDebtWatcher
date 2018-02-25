@@ -206,14 +206,15 @@ class SleepDebtWatcherUITests: XCTestCase {
     }
     
     func cancelBedtimeInputTest(){
-        /*tapAndWait(button: bedtimePlanButton, wait_time: no_wait)
+        //cancel Bedtime Plan
+        tapAndWait(button: bedtimePlanButton, wait_time: no_wait)
         XCTAssertEqual(timeSlotLabel.label, "就寝時間")
         setbedtimePickerAndWait(hour: "9", minute: "55", AMorPM: "PM", wait_time: no_wait)
         tapAndWait(button: bedtimeSetButton, wait_time: no_wait)
         XCTAssertEqual(timeSlotLabel.label, "起床時間")
         tapAndWait(button: backToTopFromBedtimeInputButton, wait_time: no_wait)
-         //tapAndWait(button: bedtimeSetButton, wait_time: no_wait)*/
         
+        //cancel Bedtime Input
         tapAndWait(button: bedtimeInputButton, wait_time: no_wait)
         XCTAssertEqual(timeSlotLabel.label, "就寝時間")
         //Set Sleep Of Time
