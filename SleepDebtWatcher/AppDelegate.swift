@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import UserNotifications
+
 //For machine debug, remove the below comment out
 //@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,11 +24,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = storyboard.instantiateInitialViewController()
         window.makeKeyAndVisible()
         
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                print("Allowed")
+            }
+            else {
+                print("Didn't allowed")
+            }
+        }
+        
         return true
     }
 #else       //iPhone
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        /*let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if granted {
+                print("Allowed")
+            }
+            else {
+                print("Didn't allowed")
+            }
+        }*/
         return true
     }
 
