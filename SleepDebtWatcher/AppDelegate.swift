@@ -7,7 +7,8 @@
 //
 
 import UIKit
-@UIApplicationMain 
+//For machine debug, remove the below comment out
+//@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?

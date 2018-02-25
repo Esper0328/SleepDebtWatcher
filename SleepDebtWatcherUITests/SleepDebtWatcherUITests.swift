@@ -172,7 +172,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         
         tapAndWait(button: bedtimeSetButton, wait_time: no_wait)
         //XCTAssertEqual(sleepDebtValueLabel.label, sleepDebtValue)
-        tapAndWait(button: backToTopFromBedtimeInputButton, wait_time: no_wait)
+
     }
     
     func bedtimeInputTest(sleep_date: String, sleep_hour: String, sleep_minute: String, sleep_AMorPM: String,
