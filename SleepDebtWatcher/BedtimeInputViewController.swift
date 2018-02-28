@@ -61,7 +61,6 @@ class BedtimeInputViewController: UIViewController {
         inputModeLabel.text = inputModeContents[sleepInputMode]?.label
         datepicker.datePickerMode = (inputModeContents[sleepInputMode]?.datePickerMode)!
         timeSlotLabel.text = "就寝時間"
-        timeSlotLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
         timeSlotLabel.textColor = UIColor.blue
         let userDefaults = UserDefaults.standard
         sleepDebt = userDefaults.double(forKey: "sleepDebt")
@@ -95,9 +94,6 @@ class BedtimeInputViewController: UIViewController {
                 setNotification(dateComponents:dateComponents, content: content)
                 sleepInputType = .WakeTime
                 timeSlotLabel.text = "起床時間"
-                timeSlotLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
-                timeSlotLabel.textColor = UIColor.blue
-                timeSlotLabel.isHighlighted = true
             case .WakeTime:
                 wakeTime = changeddate
                 setNotification(dateComponents:dateComponents, content: content)
@@ -109,9 +105,6 @@ class BedtimeInputViewController: UIViewController {
                 timeOfSleep = changeddate
                 sleepInputType = .WakeTime
                 timeSlotLabel.text = "起床時間"
-                timeSlotLabel.font = UIFont.boldSystemFont(ofSize: 17.0)
-                timeSlotLabel.textColor = UIColor.blue
-                timeSlotLabel.isHighlighted = true
             case .WakeTime:
                 wakeTime = changeddate
                 calcSleepDebt()
