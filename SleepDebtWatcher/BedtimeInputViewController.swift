@@ -60,6 +60,9 @@ class BedtimeInputViewController: UIViewController {
         super.viewDidLoad()
         inputModeLabel.text = inputModeContents[sleepInputMode]?.label
         datepicker.datePickerMode = (inputModeContents[sleepInputMode]?.datePickerMode)!
+        let date = Date()
+        datepicker.maximumDate = date
+        datepicker.minimumDate = Calendar.current.date(byAdding: .day, value: -5, to: Calendar.current.startOfDay(for: date))
         timeSlotLabel.text = "就寝時間"
         timeSlotLabel.textColor = UIColor.blue
         let userDefaults = UserDefaults.standard
