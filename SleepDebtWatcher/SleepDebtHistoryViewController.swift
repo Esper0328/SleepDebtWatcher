@@ -14,7 +14,6 @@ class SleepDebtHistoryViewController: UIViewController {
 
     
     @IBOutlet weak var sleepDebtValueLabel: UILabel!
-    //var sleepDebtValue:Double = 0
     var weekDay :Int = 0
     var sleepDebt:[Double] = [0.0,0.0,0.0,0.0,0.0,0.0,0.0]
     let highLimitTime = 4.0
