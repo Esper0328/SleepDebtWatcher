@@ -9,8 +9,9 @@
 import UIKit
 import UserNotifications
 
-//For machine debug, remove the below comment out
-//@UIApplicationMain
+//For SIM debug,UI Test, Unit Test, comment out @UIApplicationMain, add main.swift(dummy file)
+//For machine debug, remove the comment out, main.swift(dummy file)
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
