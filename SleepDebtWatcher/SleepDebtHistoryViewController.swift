@@ -28,6 +28,8 @@ class SleepDebtHistoryViewController: UIViewController {
         for i in 0..<sleepDebt.count {
             userDefaults.set(0.0, forKey: "sleepDebt" + String(i))
         }
+        loadView()
+        viewDidLoad()
     }
     
     override func viewDidLoad() {

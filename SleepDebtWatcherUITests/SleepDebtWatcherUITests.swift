@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import UserNotifications
 @testable import SleepDebtWatcher
 
 class SleepDebtWatcherUITests: XCTestCase {
@@ -92,6 +93,7 @@ class SleepDebtWatcherUITests: XCTestCase {
         tapAndWait(button: sleepDebtDisplayButton, wait_time: no_wait)
         tapAndWait(button: resetSleepDebtButton, wait_time: no_wait)
         tapAndWait(button: backToTopFromSleepDebtButton, wait_time: no_wait)
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
 
     func testAllUI(){
