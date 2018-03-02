@@ -62,7 +62,10 @@ class BedtimeInputViewController: UIViewController {
         datepicker.datePickerMode = (inputModeContents[sleepInputMode]?.datePickerMode)!
         let date = Date()
         datepicker.maximumDate = date
-        datepicker.minimumDate = Calendar.current.date(byAdding: .day, value: -5, to: Calendar.current.startOfDay(for: date))
+#if SIM //For fast SIM Test
+#else   //iPhone
+        datepicker.minimumDate = Calendar.current.date(byAdding: .day, value: -7, to: Calendar.current.startOfDay(for: date))
+#endif
         timeSlotLabel.text = "就寝時間"
         timeSlotLabel.textColor = UIColor.blue
         let userDefaults = UserDefaults.standard
@@ -110,8 +113,16 @@ class BedtimeInputViewController: UIViewController {
                 timeSlotLabel.text = "起床時間"
             case .WakeTime:
                 wakeTime = changeddate
-                calcSleepDebt()
-                performSegue(withIdentifier: "sleepDebtFromInput", sender: nil)
+                var comps = Calendar.current.dateComponents([.second], from: timeOfSleep, to: wakeTime)
+                let threshold = Calendar.current.dateComponents([.second], from: timeOfSleep, to: timeOfSleep)
+                if(comps.second! > threshold.second!){
+                    calcSleepDebt()
+                    performSegue(withIdentifier: "sleepDebtFromInput", sender: nil)
+                }
+                else{
+                    loadView()
+                    viewDidLoad()
+                }
             }
         }
     }

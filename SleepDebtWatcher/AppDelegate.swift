@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-#if SIM     //For fast Unit Test
+#if SIM     //For fast SIM Test
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 #else       //iPhone
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        /*let center = UNUserNotificationCenter.current()
+        let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
             if granted {
                 print("Allowed")
@@ -48,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             else {
                 print("Didn't allowed")
             }
-        }*/
+        }
         return true
     }
 

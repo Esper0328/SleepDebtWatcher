@@ -8,7 +8,7 @@
 
 import XCTest
 import UserNotifications
-@testable import SleepDebtWatcher
+//@testable import SleepDebtWatcher
 
 class SleepDebtWatcherUITests: XCTestCase {
 
@@ -179,6 +179,7 @@ class SleepDebtWatcherUITests: XCTestCase {
                           wake_date: String, wake_hour: String, wake_minute: String, wake_AMorPM: String, sleepDebtValue: String){
         tapAndWait(button: bedtimeInputButton, wait_time: no_wait)
         XCTAssertEqual(timeSlotLabel.label, "就寝時間")
+
         //Set Sleep Of Time
         setbedtimeDatePickerAndWait(date: sleep_date, hour: sleep_hour, minute: sleep_minute, AMorPM: sleep_AMorPM, wait_time: no_wait)
         tapAndWait(button: bedtimeSetButton, wait_time: no_wait)

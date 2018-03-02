@@ -8,7 +8,7 @@
 
 import XCTest
 import UserNotifications
-@testable import SleepDebtWatcher
+//@testable import SleepDebtWatcher
 
 class SleepDebtWatcherTests: XCTestCase {
     let bedtimeInputView = BedtimeInputViewController()
