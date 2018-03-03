@@ -12,9 +12,11 @@ import UserNotifications
 
 class BedtimeInputViewController: UIViewController {
     
-    @IBOutlet weak var timeSlotLabel: UILabel!
+
+    @IBOutlet weak var timeOfSleepLabel: UILabel!
     @IBOutlet weak var datepicker: UIDatePicker!
     @IBOutlet weak var inputModeLabel: UILabel!
+    @IBOutlet weak var wakeTimeLabel: UILabel!
     
     var changeddate : DateComponents!
     @IBAction func changeDate(_ sender: Any) {
@@ -66,8 +68,8 @@ class BedtimeInputViewController: UIViewController {
 #else   //iPhone
         datepicker.minimumDate = Calendar.current.date(byAdding: .day, value: -7, to: Calendar.current.startOfDay(for: date))
 #endif
-        timeSlotLabel.text = "就寝時間"
-        timeSlotLabel.textColor = UIColor.blue
+        timeOfSleepLabel.text = "就寝時間"
+        timeOfSleepLabel.textColor = UIColor.blue
         let userDefaults = UserDefaults.standard
         sleepDebt = userDefaults.double(forKey: "sleepDebt")
         // Do any additional setup after loading the view, typically from a nib.
@@ -99,7 +101,7 @@ class BedtimeInputViewController: UIViewController {
                 dateComponents.hour = dateComponents.hour! - 2
                 setNotification(dateComponents:dateComponents, content: content)
                 sleepInputType = .WakeTime
-                timeSlotLabel.text = "起床時間"
+                wakeTimeLabel.text = "起床時間"
             case .WakeTime:
                 wakeTime = changeddate
                 setNotification(dateComponents:dateComponents, content: content)
@@ -110,7 +112,7 @@ class BedtimeInputViewController: UIViewController {
             case .TimeOfSleep:
                 timeOfSleep = changeddate
                 sleepInputType = .WakeTime
-                timeSlotLabel.text = "起床時間"
+                wakeTimeLabel.text = "起床時間"
             case .WakeTime:
                 wakeTime = changeddate
                 var comps = Calendar.current.dateComponents([.second], from: timeOfSleep, to: wakeTime)

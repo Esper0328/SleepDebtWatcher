@@ -8,7 +8,10 @@
 
 import XCTest
 import UserNotifications
-//@testable import SleepDebtWatcher
+
+//For SIM debug,UI Test, Unit Test, comment out @testable
+//For machine debug, remove the comment out
+@testable import SleepDebtWatcher
 
 class SleepDebtWatcherTests: XCTestCase {
     let bedtimeInputView = BedtimeInputViewController()

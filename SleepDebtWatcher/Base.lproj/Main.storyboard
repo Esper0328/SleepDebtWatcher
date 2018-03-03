@@ -87,10 +87,10 @@
                                     <action selector="changeDate:" destination="3LV-kQ-Gjc" eventType="valueChanged" id="xnG-ub-gJu"/>
                                 </connections>
                             </datePicker>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="入力状態" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="087-D8-FPb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="入力状態" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="087-D8-FPb" userLabel="WakeTimeLabel">
                                 <rect key="frame" x="204" y="350" width="93" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="timeInputCheckLabel"/>
+                                <accessibility key="accessibilityConfiguration" identifier="wakeTimeLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -115,10 +115,10 @@
                                     <action selector="setBedtimeEvent:" destination="3LV-kQ-Gjc" eventType="touchUpInside" id="cYG-pa-Wat"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="就寝時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IN7-BG-CjJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="就寝時間" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IN7-BG-CjJ" userLabel="TimeOfSleepLabel">
                                 <rect key="frame" x="75" y="350" width="96" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="timeSlotLabel"/>
+                                <accessibility key="accessibilityConfiguration" identifier="timeOfSleepLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -138,7 +138,8 @@
                     <connections>
                         <outlet property="datepicker" destination="sGO-vZ-9Ws" id="UPo-oc-rVi"/>
                         <outlet property="inputModeLabel" destination="GUD-nj-aJl" id="Ikk-xu-iXL"/>
-                        <outlet property="timeSlotLabel" destination="IN7-BG-CjJ" id="KHy-6W-h4r"/>
+                        <outlet property="timeOfSleepLabel" destination="IN7-BG-CjJ" id="9Np-c0-Qsg"/>
+                        <outlet property="wakeTimeLabel" destination="087-D8-FPb" id="4p7-3O-dP5"/>
                         <segue destination="ZTA-xh-4sx" kind="show" identifier="sleepDebtFromInput" id="zho-DD-rAR"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="backToTopViewFromInput" id="XIU-Cn-l28"/>
                     </connections>

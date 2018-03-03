@@ -17,6 +17,7 @@
 		351A08252001A1EA00636672 /* TesttingAppDeligate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A08242001A1EA00636672 /* TesttingAppDeligate.swift */; };
 		351A082E2001B47200636672 /* BedtimeInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A082D2001B47200636672 /* BedtimeInputViewController.swift */; };
 		351A08302001EC9600636672 /* SleepDebtHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351A082F2001EC9600636672 /* SleepDebtHistoryViewController.swift */; };
+		35210BBD204A1BD80094133C /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35210BBB204A1BD10094133C /* main.swift */; };
 		359721182035B0DD00F5C2C8 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3500A5192014B5AE009EC173 /* Charts.framework */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,7 @@
 		351A08242001A1EA00636672 /* TesttingAppDeligate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TesttingAppDeligate.swift; sourceTree = "<group>"; };
 		351A082D2001B47200636672 /* BedtimeInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BedtimeInputViewController.swift; sourceTree = "<group>"; };
 		351A082F2001EC9600636672 /* SleepDebtHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepDebtHistoryViewController.swift; sourceTree = "<group>"; };
+		35210BBB204A1BD10094133C /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = SleepDebtWatcher/main.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 				351A07FD2000550000636672 /* LaunchScreen.storyboard */,
 				351A08002000550000636672 /* Info.plist */,
 				351A082D2001B47200636672 /* BedtimeInputViewController.swift */,
+				35210BBB204A1BD10094133C /* main.swift */,
 			);
 			path = SleepDebtWatcher;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				351A08302001EC9600636672 /* SleepDebtHistoryViewController.swift in Sources */,
+				35210BBD204A1BD80094133C /* main.swift in Sources */,
 				351A07F72000550000636672 /* TopViewController.swift in Sources */,
 				351A07F52000550000636672 /* AppDelegate.swift in Sources */,
 				351A082E2001B47200636672 /* BedtimeInputViewController.swift in Sources */,
