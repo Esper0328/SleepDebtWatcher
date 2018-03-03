@@ -11,7 +11,7 @@ import UserNotifications
 
 //For SIM debug,UI Test, Unit Test, comment out @UIApplicationMain, add main.swift(dummy file)
 //For machine debug, remove the comment out, main.swift(dummy file)
-//@UIApplicationMain
+@UIApplicationMain
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

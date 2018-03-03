@@ -9,8 +9,7 @@
 import XCTest
 import UserNotifications
 
-//For SIM debug,UI Test, Unit Test, comment out @testable
-//For machine debug, remove the comment out
+//For only SIM 
 @testable import SleepDebtWatcher
 
 class SleepDebtWatcherTests: XCTestCase {
