@@ -26,6 +26,7 @@ class SleepDebtHistoryViewController: UIViewController {
         userDefaults.set(0.0, forKey: "sleepDebt")
         for i in 0..<sleepDebt.count {
             userDefaults.set(0.0, forKey: "sleepDebt" + String(i))
+            sleepDebt[i] = 0.0
         }
         loadView()
         viewDidLoad()
